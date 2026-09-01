@@ -9,5 +9,6 @@ __pycache__/
 *.pyc
 .venv/
 
-# 生成物。docs/ から作り直せる。
+# 生成物。docs/ から作り直せる。tools/build_site.py が作り直す。
+build/
 site/

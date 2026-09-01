@@ -1,0 +1,53 @@
+# 文書が検査を通り、サイトが作れる状態を保つ。
+#
+# 公開はしない。公開は .github/workflows/pages.yml が master への push で行う。
+# ここは「取り込む前に壊れていないか」だけを見る。
+#
+# 手順は README.md「文書を検査する」「サイトを作って見る」と同じものをなぞる。
+
+name: 文書を検査する
+
+on:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    name: 検査とサイト生成
+    runs-on: ubuntu-latest
+    steps:
+      - name: リポジトリを取得する
+        uses: actions/checkout@v7
+        with:
+          submodules: recursive
+
+      # 検査・抽出・サイト生成をこの1つで動かす。中身は tools/Dockerfile にある。
+      - name: 道具のイメージを作る
+        run: docker build -t guide-tools -f tools/Dockerfile tools/
+
+      - name: 同梱するライブラリを取得する
+        run: bash engineering-docs-standard/tools/fetch_vendor.sh
+
+      # エラーが1件でもあれば、ここで止まる。警告では止まらない。
+      - name: 文書を検査する
+        run: |
+          docker run --rm --user "$(id -u):$(id -g)" -v "$PWD:/w" -w /w \
+            guide-tools python tools/doc_lint.py
+
+      # --strict を付けると、警告が1件でもあれば失敗する。
+      # リンク切れと見出しアンカーの食い違いを、ここで止めるためである。
+      - name: サイトを作る
+        run: |
+          docker run --rm --user "$(id -u):$(id -g)" -v "$PWD:/w" -w /w \
+            guide-tools python tools/build_site.py --strict
+
+      # 見た目を目で確かめられるように、成果物を残す。公開はしない。
+      - name: 成果物を残す
+        uses: actions/upload-artifact@v7
+        with:
+          name: site
+          path: site
+          retention-days: 14

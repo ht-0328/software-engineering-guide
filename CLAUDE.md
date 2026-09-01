@@ -18,6 +18,7 @@
 4. **参考書のPDFと `research/extracted/` をGitに入れない。** PDFは購入者ウォーターマーク（メールアドレス）を含む。
 5. **文書の書き方は [サブモジュールの標準](engineering-docs-standard/docs/index.md) に従う。** 規則をこのリポジトリに写さない。
 6. **未解決の印（「TBD」「FIXME」）を残さない。** 決まっていないことは、決まっていないと書く。
+7. **章を足したら [zensical.toml](zensical.toml) の `nav` にも足す。** 足さないと公開サイトのサイドバーに出ない。
 
 ## 章を足す手順
 
@@ -26,26 +27,33 @@
 3. `research/cross-reference.md` に、原則と出典の対応を書く。
 4. `docs/` に章を書く。書式は [templates/chapter.md](templates/chapter.md) にある。
 5. 検査を通し、[docs/index.md](docs/index.md) の章の一覧の状態を更新する。
-6. [CHANGELOG.md](CHANGELOG.md) に版と変更を書く。
+6. [zensical.toml](zensical.toml) の `nav` に章を足し、サイトが作れることを確かめる。
+7. [CHANGELOG.md](CHANGELOG.md) に版と変更を書く。
 
 ## 道具の動かし方
 
 道具はすべてDockerの中で動かす。**ホストには何も入れない。** イメージは最初に1回だけ作る。
 
 ```bash
-docker build -t edocs-tools -f engineering-docs-standard/tools/Dockerfile engineering-docs-standard/tools/
+docker build -t guide-tools -f tools/Dockerfile tools/
 ```
 
 文書を検査する。**変更した文書は、返す前に必ず検査する。**
 
 ```bash
-docker run --rm --user "$(id -u):$(id -g)" -v "$PWD:/w" -w /w edocs-tools python tools/doc_lint.py
+docker run --rm --user "$(id -u):$(id -g)" -v "$PWD:/w" -w /w guide-tools python tools/doc_lint.py
 ```
 
 参考書から本文を取り出す。引数はPDFのファイル名である。
 
 ```bash
-docker run --rm --user "$(id -u):$(id -g)" -v "$PWD:/w" -w /w edocs-tools python tools/extract_pdf.py good-code-bad-code.pdf
+docker run --rm --user "$(id -u):$(id -g)" -v "$PWD:/w" -w /w guide-tools python tools/extract_pdf.py good-code-bad-code.pdf
+```
+
+公開サイトを作る。**`docs/` を直したら、返す前にこれも通す。** 先に `bash engineering-docs-standard/tools/fetch_vendor.sh` を1回だけ実行する。
+
+```bash
+docker run --rm --user "$(id -u):$(id -g)" -v "$PWD:/w" -w /w guide-tools python tools/build_site.py --strict
 ```
 
 ## 書き方の要点
