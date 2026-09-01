@@ -1,0 +1,29 @@
+# doc_lint の設定（差分だけを書く）
+#
+# ルールの本体は engineering-docs-standard/.doclint.yml にある。
+# このファイルはそこへ重ねる差分であり、書いた項目だけを上書きする。
+# 配列は置き換え、辞書は再帰的に併合する。併合は tools/doc_lint.py が行う。
+#
+# ルールを足したい・閾値を変えたいときは、この下に同じ名前で書く。
+# ルールそのものの定義を写して持つことはしない。写しは、直した側だけが新しくなる。
+
+# 検査対象。このリポジトリの構成に合わせて置き換える。
+target:
+  include:
+    - "docs/**/*.md"
+    - "templates/**/*.md"
+    - "README.md"
+    - "CLAUDE.md"
+  exclude:
+    - "research/**"                  # 出典ノートは原文の引用を含むため検査しない
+    - "engineering-docs-standard/**" # サブモジュールは向こうで検査する
+    - "site/**"
+
+rules:
+  # 冒頭のメタ情報を求める文書。パスは前方一致で判定する。
+  document_metadata:
+    paths:
+      - "templates/"
+      - "docs/index.md"
+      - "docs/adr/"
+      - "README.md"
