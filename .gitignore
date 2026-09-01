@@ -1,0 +1,13 @@
+# 参考書のPDF原本。購入者ウォーターマーク（メールアドレス）を含むため追跡しない。
+references/*.pdf
+
+# PDFから抽出した本文。原本の複製にあたるため追跡しない。要約は research/notes/ に残す。
+research/extracted/
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+
+# 生成物。docs/ から作り直せる。
+site/
