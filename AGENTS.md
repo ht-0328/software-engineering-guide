@@ -20,6 +20,8 @@
 
 ## 使ってよい道具
 
-読み取りと検索は自由に行ってよい。**禁止しているコマンドは [.codex/rules/repository.rules](.codex/rules/repository.rules) にある。** 破壊的な操作、外への通信、導入を伴うコマンドを止めている。
+読み取りと検索は自由に行ってよい。**破壊的な操作、外への通信、導入を伴うコマンドは実行しない。** 一覧は [.agents/rules/repository-constraints.md](.agents/rules/repository-constraints.md) にある。
 
-Webを調べるときは、組み込みの検索を使う。**根拠に使ってよい発信元は [.agents/rules/repository-constraints.md](.agents/rules/repository-constraints.md) にある。**
+codex では、この一覧を [.codex/rules/repository.rules](.codex/rules/repository.rules) が実際に止めている。**Antigravity では止めていない。規則として守る。**
+
+Webを調べるときは、組み込みの取得を使う。**根拠に使ってよい発信元は [.agents/rules/repository-constraints.md](.agents/rules/repository-constraints.md) にある。**

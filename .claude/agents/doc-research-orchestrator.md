@@ -100,14 +100,16 @@ codex exec --cd "$PWD" --skip-git-repo-check \
   > "$WORK/codex.log" 2>&1
 ```
 
-Antigravity は [tools/agy.sh](../../tools/agy.sh) 経由で起動する。**`agy` を直に呼ばない。** 素の `agy` はヘッドレスで `read_file` と `read_url` を拒否するため、何も返さない。起動スクリプトが [.agents/permissions.json](../../.agents/permissions.json) の許可リストを渡す。
+Antigravity は `~/.gemini/antigravity-cli/settings.json` の `permissions.allow` に従う。**この設定はリポジトリの外にある。** `agy` はワークスペース側の設定を読まない。
 
 ```bash
-bash tools/agy.sh --output-format text --print-timeout 15m \
+agy --output-format text --print-timeout 15m \
   --print "$(cat "$WORK/research-prompt.txt")
 主張IDの接頭辞は A- とする。" \
   > "$TOPIC_DIR/31-antigravity.md" 2> "$WORK/agy.log"
 ```
+
+**出力が空で、標準エラーに `auto-denied` が出たら、その許可が入っていない。** 拒否された道具の名前を記録し、手順4で報告する。設定を勝手に書き換えない。
 
 2つを起動したら、待たずに手順3へ進む。**終了は通知で受け取る。回収は手順4で行う。**
 

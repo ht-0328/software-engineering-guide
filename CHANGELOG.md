@@ -12,16 +12,13 @@ codex と Antigravity の設定・スキル・許可リストを、リポジト�
 
 - 外部AI向けの指示書 [AGENTS.md](AGENTS.md)。codex と Antigravity が読む。
 - 3者が共有するスキル `.agents/skills/`。中間成果物の書式と、抽出テキストの探し方の2つ。
-- Antigravity 向けの制約 `.agents/rules/repository-constraints.md`。書き込みの禁止と、発信元の許可。
-- Antigravity の許可リスト [.agents/permissions.json](.agents/permissions.json)。読み取りとURLを許し、書き込みと破壊的なコマンドを拒否する。
-- Antigravity の起動スクリプト [tools/agy.sh](tools/agy.sh)。個人のグローバル設定を書き換えずに許可リストを渡す。
+- Antigravity 向けの制約 `.agents/rules/repository-constraints.md`。書き込みの禁止、実行しないコマンド、発信元の許可。
 - codex の設定 [.codex/config.toml](.codex/config.toml)。読み取りのみ、シェルからの通信は閉じる。
 - codex の実行方針 `.codex/rules/repository.rules`。破壊的な操作、外への通信、導入を伴うコマンドを止める。
 
 ### 変更
 
 - 中間成果物の書式の正本を `.claude/skills/` から `.agents/skills/` へ移した。3者が同じ書式を読むためである。`.claude/skills/writing-interim-artifacts/` は正本を指し、司会だけが行う確認を持つ。
-- 指揮役のエージェントと議論のスキルが、`agy` ではなく `tools/agy.sh` を呼ぶようにした。素の `agy` はヘッドレスで道具の使用を自動で拒否する。
 - 外部AIへの依頼文から書式の規則を外した。2者とも `AGENTS.md` と `.agents/skills/` を読むためである。
 
 ### 確かめたこと
@@ -29,7 +26,13 @@ codex と Antigravity の設定・スキル・許可リストを、リポジト�
 - codex は `AGENTS.md`、`.agents/skills/`、`.codex/skills/`、`.codex/config.toml`、`.codex/rules/*.rules` を読む。
 - `.codex/rules/` の `prefix_rule` は実際に実行を止める。`network_rule` による遮断は、この環境では確認できなかった。
 - Antigravity の `read_url` の許可リストは実際に効く。許可していないホストは拒否される。
-- `tools/agy.sh` は個人の `~/.gemini/antigravity-cli/settings.json` を変更しない。
+- **Antigravity はワークスペース側の設定を読まない。** `.agents/settings.json` と `.gemini/settings.json` は無視された。読むのは `~/.gemini/antigravity-cli/settings.json` だけである。
+
+### Antigravity の許可について
+
+**Antigravity の許可だけは、リポジトリの中に置けない。** そのため `~/.gemini/antigravity-cli/settings.json` の `permissions.allow` に、読み取りと取得を許すURLを足した。既存の設定は残してある。
+
+`deny`（書き込みや破壊的なコマンドの拒否）は入れていない。**入れると、このリポジトリ以外での Antigravity の作業でもファイルを書けなくなるためである。** 実行しないコマンドの一覧は `.agents/rules/repository-constraints.md` に規則として置いた。
 
 ## 0.3.0（2026-09-03）
 

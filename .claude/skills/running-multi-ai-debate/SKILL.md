@@ -100,12 +100,12 @@ codex exec --cd "$PWD" --sandbox read-only --skip-git-repo-check \
 ```
 
 ```bash
-bash tools/agy.sh --output-format text --print-timeout 15m \
+agy --output-format text --print-timeout 15m \
   --print "$(cat "$WORK/critique-prompt.txt")" \
   > "$TOPIC_DIR/42-antigravity-critique.md" 2> "$WORK/agy.log"
 ```
 
-**`agy` を直に呼ばない。** 素の `agy` はヘッドレスで道具の使用を自動で拒否し、何も返さない。`tools/agy.sh` がリポジトリの許可リストを渡す。
+**Antigravity が何も返さないときは、`~/.gemini/antigravity-cli/settings.json` の `permissions.allow` に道具が入っていない。** 標準エラーに拒否された道具の名前が出る。2者で進め、そのことを記録する。
 
 `$WORK` と `$TOPIC_DIR` は展開して書く。**背景の実行はシェルの変数を引き継がない。**
 

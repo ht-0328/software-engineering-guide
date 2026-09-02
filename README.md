@@ -48,7 +48,6 @@ research/orchestration/   調査から文書までの中間成果物。題材ご
 research/extracted/       PDFから取り出した本文（Git管理外）
 templates/                章と観点の書式
 tools/                    検査と抽出の入口。中身はサブモジュールが持つ
-tools/agy.sh              リポジトリ専用の許可リストで Antigravity を動かす
 references/               参考書のPDF（Git管理外）
 engineering-docs-standard/  文書の書き方の標準（サブモジュール）
 .github/workflows/        検査と公開の自動実行

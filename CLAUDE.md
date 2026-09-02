@@ -62,15 +62,16 @@
 | [AGENTS.md](AGENTS.md) | 外部AI向けの指示書 | codex、Antigravity |
 | [.agents/skills/](.agents/skills/) | 3者が共有するスキル | 3者すべて |
 | [.agents/rules/](.agents/rules/) | 制約と発信元の許可 | Antigravity |
-| [.agents/permissions.json](.agents/permissions.json) | Antigravity の許可リスト | `tools/agy.sh` |
 | [.codex/config.toml](.codex/config.toml) | codex の設定 | codex |
 | [.codex/rules/](.codex/rules/) | codex の禁止コマンド | codex |
 
-**Antigravity は [tools/agy.sh](tools/agy.sh) 経由で起動する。** 素の `agy` はヘッドレスで道具の使用を自動で拒否し、何も返さない。
+**Antigravity の許可だけは、リポジトリの外にある。** `agy` はワークスペース側の設定を読まず、`~/.gemini/antigravity-cli/settings.json` の `permissions.allow` しか見ない。ここに `read_file`、`command`、取得を許すURLを入れてある。
 
 ```bash
-bash tools/agy.sh --output-format text --print "調べてほしいこと"
+agy --output-format text --print "調べてほしいこと"
 ```
+
+**何も返らないときは、この許可が入っていない。** 標準エラーに、拒否された道具の名前が出る。
 
 **codex と Antigravity はホストのCLIであり、Dockerの中では動かない。** 「道具はDockerの中で動かす」の対象は、この手引き自身の道具である。
 
