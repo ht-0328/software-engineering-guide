@@ -4,9 +4,10 @@
 |---|---|
 | これは何か | コードレビュー、テスト、設計、問題の見つけ方を、出典つきで整理するリポジトリ |
 | 本文 | [docs/index.md](docs/index.md) |
-| 版 | 0.1.0（[変更履歴](CHANGELOG.md)） |
+| Webで読む | [公開サイト](https://ht-0328.github.io/software-engineering-guide/)（検索・目次つき） |
+| 版 | 0.2.0（[変更履歴](CHANGELOG.md)） |
 | 作成者 | Claude（Opus 5） |
-| 機密区分 | 社内限り |
+| 機密区分 | 公開可 |
 | 想定読者 | システム開発でコードを書き、レビューし、テストし、設計する人 |
 | 読んだあとできること | この手引きに章を足せる。根拠のたどり方が分かる |
 | 保守責任者 | このリポジトリの保守担当 |
@@ -29,6 +30,7 @@
 | 構成と規則の決定記録 | [docs/adr/ADR-001-repository-structure.md](docs/adr/ADR-001-repository-structure.md) |
 | 文書の検査 | [tools/doc_lint.py](tools/doc_lint.py) |
 | PDFからの本文抽出 | [tools/extract_pdf.py](tools/extract_pdf.py) |
+| サイトの生成と公開 | [tools/build_site.py](tools/build_site.py)、[.github/workflows/pages.yml](.github/workflows/pages.yml) |
 
 ## フォルダ構成
 
@@ -43,6 +45,10 @@ templates/                章と観点の書式
 tools/                    検査と抽出の入口。中身はサブモジュールが持つ
 references/               参考書のPDF（Git管理外）
 engineering-docs-standard/  文書の書き方の標準（サブモジュール）
+.github/workflows/        検査と公開の自動実行
+zensical.toml             公開サイトの設定。章を足したら nav も直す
+build/zensical/           サイト生成の下ごしらえ（生成物・Git管理外）
+site/                     生成したHTML（生成物・Git管理外）
 ```
 
 ## 使い方
@@ -68,15 +74,15 @@ git submodule update --init --recursive
 道具はすべてDockerの中で動かす。**ホストには何も入れない。** 最初に1回だけ実行する。
 
 ```bash
-docker build -t edocs-tools -f engineering-docs-standard/tools/Dockerfile engineering-docs-standard/tools/
+docker build -t guide-tools -f tools/Dockerfile tools/
 ```
 
-**成功したとき**: `docker images edocs-tools` が版を表示する。
+**成功したとき**: `docker images guide-tools` が版を表示する。
 
 ### 文書を検査する
 
 ```bash
-docker run --rm --user "$(id -u):$(id -g)" -v "$PWD:/w" -w /w edocs-tools python tools/doc_lint.py
+docker run --rm --user "$(id -u):$(id -g)" -v "$PWD:/w" -w /w guide-tools python tools/doc_lint.py
 ```
 
 **終了コード**: `error` が0件なら `0`、1件以上あれば `1` を返す。`warning` では失敗しない。
@@ -86,7 +92,7 @@ docker run --rm --user "$(id -u):$(id -g)" -v "$PWD:/w" -w /w edocs-tools python
 特定のファイルだけを検査する場合は、パスを渡す。
 
 ```bash
-docker run --rm --user "$(id -u):$(id -g)" -v "$PWD:/w" -w /w edocs-tools python tools/doc_lint.py docs/index.md
+docker run --rm --user "$(id -u):$(id -g)" -v "$PWD:/w" -w /w guide-tools python tools/doc_lint.py docs/index.md
 ```
 
 **検査を通ったことは品質の証明ではない。** 根拠が正しいか、読者に合っているかは機械では判定できない。
@@ -96,10 +102,48 @@ docker run --rm --user "$(id -u):$(id -g)" -v "$PWD:/w" -w /w edocs-tools python
 `references/` のPDFから本文を取り出し、`research/extracted/` に置く。**出力はGit管理外である。**
 
 ```bash
-docker run --rm --user "$(id -u):$(id -g)" -v "$PWD:/w" -w /w edocs-tools python tools/extract_pdf.py good-code-bad-code.pdf
+docker run --rm --user "$(id -u):$(id -g)" -v "$PWD:/w" -w /w guide-tools python tools/extract_pdf.py good-code-bad-code.pdf
 ```
 
 引数を省略すると22冊すべてを処理する。**出力先のファイル名は出典IDになる。** 対応は [research/sources.md](research/sources.md) が持つ。
+
+### サイトを作って見る
+
+**公開ずみのサイトを見るだけなら、この手順は要らない。** [公開サイト](https://ht-0328.github.io/software-engineering-guide/) が `master` の内容をそのまま出している。手元で作るのは、公開前の変更を確かめるときである。
+
+図の描画に使うMermaidを先に取得する。クローン直後に一度だけ実行する。
+
+```bash
+bash engineering-docs-standard/tools/fetch_vendor.sh
+```
+
+そのうえでサイトを作る。`--strict` を付けると、リンク切れなどの警告1件で失敗する。
+
+```bash
+docker run --rm --user "$(id -u):$(id -g)" -v "$PWD:/w" -w /w guide-tools python tools/build_site.py --strict
+```
+
+**期待される出力**（末尾の3行）
+
+```text
+下ごしらえしたページ: 2
+生成したページ: 2
+出力先: /w/site
+```
+
+開くときもDockerを使う。ブラウザで `http://127.0.0.1:8788/` を開く。止めるときは `Ctrl+C` を押す。
+
+```bash
+docker run --rm -p 8788:8788 -v "$PWD/site:/site:ro" -w /site guide-tools python -m http.server 8788 --bind 0.0.0.0
+```
+
+**生成したサイトは外部への通信を行わない。** そのために、閲覧時ではなくビルド前にMermaidを取得している。書体も読み込ませていない。
+
+### 公開のしくみ
+
+`master` に push すると [pages.yml](.github/workflows/pages.yml) が動く。検査とサイト生成を通ったものを GitHub Pages へ配る。プルリクエストでは [docs.yml](.github/workflows/docs.yml) が同じ検査と生成を行い、公開はしない。
+
+**最初の公開の前に、リポジトリの設定を1つ変える。** Settings > Pages の Source を「GitHub Actions」にする。設定しないと配信の段階で失敗する。決めた理由は [ADR-002](docs/adr/ADR-002-publish-with-zensical.md) にある。
 
 ## 書くときの規則
 
@@ -108,6 +152,7 @@ docker run --rm --user "$(id -u):$(id -g)" -v "$PWD:/w" -w /w edocs-tools python
 3. **数値は目安として書く。** 出典の文脈から離れると、合否の基準に見えてしまう。
 4. **書籍の本文を長く転載しない。** 要約と、ページを指す出典IDを残す。
 5. **文書の書き方は [姉妹リポジトリの標準](engineering-docs-standard/docs/index.md) に従う。**
+6. **章を足したら [zensical.toml](zensical.toml) の `nav` にも足す。** 足さないと、サイドバーに出ない。
 
 章の足し方の手順は [ADR-001](docs/adr/ADR-001-repository-structure.md) にある。
 

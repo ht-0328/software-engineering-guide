@@ -1,0 +1,86 @@
+# 公開サイトの設定。
+#
+#   docker run --rm --user "$(id -u):$(id -g)" -v "$PWD:/w" -w /w \
+#     edocs-zensical python tools/build_site.py
+#
+# docs_dir が docs/ ではないことに注意する。Zensical は docs_dir の中だけを
+# サイトにするため、docs/ の外を指すリンクを書き換えた写しを一度作る。
+# その置き場が build/zensical/ である。作るのは tools/build_site.py である。
+
+[project]
+site_name = "システム開発の進め方の手引き"
+site_description = "コードレビュー、テスト、設計、問題の見つけ方を、出典つきで整理した手引き"
+site_url = "https://ht-0328.github.io/software-engineering-guide/"
+
+repo_url = "https://github.com/ht-0328/software-engineering-guide"
+repo_name = "ht-0328/software-engineering-guide"
+
+docs_dir = "build/zensical"
+site_dir = "site"
+
+# 図を描く Mermaid を同梱する。読み込み元は build/zensical/assets/ であり、
+# 中身はサブモジュールの tools/vendor/mermaid.min.js の写しである。
+# 外部への通信を起こさないため、CDN からは読まない。
+extra_javascript = ["assets/mermaid.min.js", "assets/mermaid-init.js"]
+
+# サイドバーの並び。章を足したら、ここにも足す。
+nav = [
+  { "はじめに" = ["index.md"] },
+  { "決定記録" = [
+      "adr/ADR-001-repository-structure.md",
+      "adr/ADR-002-publish-with-zensical.md",
+  ] },
+]
+
+[project.theme]
+language = "ja"
+
+# 書体を読み込まない。既定のままだと Google Fonts へ通信が出る。
+font = false
+
+features = [
+  "content.code.copy",
+  "navigation.sections",
+  "navigation.top",
+  "navigation.tracking",
+  "search.highlight",
+  "toc.follow",
+]
+
+# 明るい表示と暗い表示を切り替える。既定は閲覧環境の設定に従う。
+[[project.theme.palette]]
+media = "(prefers-color-scheme)"
+toggle.icon = "lucide/sun-moon"
+toggle.name = "明るい表示に切り替える"
+
+[[project.theme.palette]]
+media = "(prefers-color-scheme: light)"
+scheme = "default"
+toggle.icon = "lucide/sun"
+toggle.name = "暗い表示に切り替える"
+
+[[project.theme.palette]]
+media = "(prefers-color-scheme: dark)"
+scheme = "slate"
+toggle.icon = "lucide/moon"
+toggle.name = "閲覧環境の設定に戻す"
+
+[project.markdown_extensions]
+admonition = {}
+attr_list = {}
+def_list = {}
+md_in_html = {}
+tables = {}
+toc.permalink = true
+
+# 見出しのアンカーを、doc_lint.py と同じ規則で作る。
+# 実体はサブモジュールの tools/mdslug.py にある。既定のままだと日本語の見出しが
+# 通し番号になり、本文中の見出しへのリンクが切れる。
+toc.slugify = { object = "mdslug.toc_slugify" }
+
+# ```mermaid を <pre class="mermaid"> にする。描画は mermaid-init.js が行う。
+pymdownx.superfences.custom_fences = [
+  { name = "mermaid", class = "mermaid", format = "pymdownx.superfences.fence_code_format" },
+]
+pymdownx.highlight.pygments_lang_class = true
+pymdownx.inlinehilite = {}
