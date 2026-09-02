@@ -4,6 +4,25 @@
 
 **この手引きでは、章の追加を機能追加（マイナー）、観点の削除や意味の変更を破壊的変更（メジャー）として扱う。**
 
+## 0.3.0（2026-09-03）
+
+調査から文書までを、4系統の調査と3者の議論で進める仕組みを足した。**本文はまだ無い。**
+
+### 追加
+
+- 指揮役のエージェント（[.claude/agents/doc-research-orchestrator.md](.claude/agents/doc-research-orchestrator.md)）。題材から文書1本までを通しで進める。
+- 中間成果物の書式のスキル（`.claude/skills/writing-interim-artifacts/`）。置き場所は `research/orchestration/<題材>/` とする。
+- 公開情報の調査のスキル（`.claude/skills/researching-public-sources/`）。URLと確認日を必ず残す。
+- 書籍の調査のスキル（`.claude/skills/researching-book-sources/`）。抽出テキストを全文読まずにページ番号つきで引く道具を同梱する。
+- 3者の議論のスキル（`.claude/skills/running-multi-ai-debate/`）。codex と Antigravity に1往復の批評をさせる。
+- 標準に沿った執筆のスキル（`.claude/skills/writing-docs-to-standard/`）。検査で落ちる型と直し方を参照先に持つ。
+- 中間成果物の置き場所 `research/orchestration/`。Gitで追跡する。
+
+### 変更
+
+- [CLAUDE.md](CLAUDE.md) に、通しで文書を作るときの入口を足した。
+- [README.md](README.md) のフォルダ構成に `research/orchestration/` を足した。
+
 ## 0.2.0（2026-09-02）
 
 公開の仕組みと、プルリクエストの型を足した。**本文はまだ無い。**

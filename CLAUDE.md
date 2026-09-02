@@ -30,6 +30,29 @@
 6. [zensical.toml](zensical.toml) の `nav` に章を足し、サイトが作れることを確かめる。
 7. [CHANGELOG.md](CHANGELOG.md) に版と変更を書く。
 
+## 調査から文書までを通しで作るとき
+
+**「〜についてのドキュメントを作って」と頼まれたら、`doc-research-orchestrator` エージェントに任せる。** 4系統で調べ、3者で議論し、決着をもとに文書を書くまでを通しで行う。定義は [エージェントの定義](.claude/agents/doc-research-orchestrator.md) にある。
+
+4系統は次のとおりである。
+
+- 公開情報の調査
+- 書籍の調査
+- codex
+- Antigravity
+
+各段の作法は5つのスキルが持つ。**エージェントを使わずに1段だけ行うこともできる。**
+
+| スキル | 扱う段 |
+|---|---|
+| `writing-interim-artifacts` | 中間成果物の書式 |
+| `researching-public-sources` | 公開情報の調査 |
+| `researching-book-sources` | 書籍の調査 |
+| `running-multi-ai-debate` | 3者による議論 |
+| `writing-docs-to-standard` | 標準に沿った執筆と検査 |
+
+中間成果物は `research/orchestration/<題材のスラッグ>/` に置き、Gitで追跡する。**外部AIの出力を置く前に、書籍の本文を長く写していないかを確かめる。**
+
 ## 道具の動かし方
 
 道具はすべてDockerの中で動かす。**ホストには何も入れない。** イメージは最初に1回だけ作る。
