@@ -72,21 +72,16 @@ model: opus
 
 依頼文は2者で同一にする。`00-plan.md` の中身をプロンプトに直接入れる。
 
+**書式の規則を依頼文に写さない。** 2者とも [AGENTS.md](../../AGENTS.md) と [.agents/skills/](../../.agents/skills/) を読む。依頼文には、どのスキルに従うかと、この作業に固有のことだけを書く。
+
 ```bash
 TOPIC_DIR=research/orchestration/<スラッグ>
 WORK=$(mktemp -d) && echo "作業ディレクトリ: $WORK"
 {
-  echo "あなたは技術文書の調査者である。次の問いに答え、Markdownの表だけを出力せよ。"
-  echo "## 守ること"
-  echo "- 1行が1主張。列は「主張ID / 主張 / 根拠の所在 / 確からしさ」とする。"
-  echo "- 確からしさは「一次資料」「二次資料」「推測」から選ぶ。"
-  echo "- 一次資料は、規格の本体・書籍の本文・公式文書を自分で読んだ場合を指す。"
-  echo "- research/extracted/ の抽出テキストは書籍の本文である。一次資料に数える。"
-  echo "- 二次資料は、他者による要約や解説を読んだ場合を指す。"
-  echo "- 資料を読んでいない主張は必ず「推測」とする。"
-  echo "- 書籍や記事の本文を3文以上そのまま写さない。要約で書く。"
-  echo "- 答えられない問いは「答えられなかったこと」の表に理由つきで書く。"
-  echo "- 前置きと後書きを書かない。"
+  echo "あなたは技術文書の調査者である。次の問いに答えよ。"
+  echo "書式は .agents/skills/writing-interim-artifacts/SKILL.md に従う。"
+  echo "書籍から調べるときは .agents/skills/searching-book-extracts/SKILL.md に従う。"
+  echo "出力は Markdown の表だけとし、前置きと後書きを書かない。"
   cat "$TOPIC_DIR/00-plan.md"
 } > "$WORK/research-prompt.txt"
 ```
@@ -95,48 +90,32 @@ WORK=$(mktemp -d) && echo "作業ディレクトリ: $WORK"
 
 **`$TOPIC_DIR` と `$WORK` は展開した実際のパスで書く。** 背景の実行はシェルの変数を引き継がない。
 
-codex はリポジトリを読める。主張IDの接頭辞は `C-` を使わせる。
+codex は [.codex/config.toml](../../.codex/config.toml) を読み、読み取りのみで動く。止めているコマンドは [.codex/rules/repository.rules](../../.codex/rules/repository.rules) にある。
 
 ```bash
-codex exec --cd "$PWD" --sandbox read-only --skip-git-repo-check \
+codex exec --cd "$PWD" --skip-git-repo-check \
   -o "$TOPIC_DIR/30-codex.md" \
   "$(cat "$WORK/research-prompt.txt")
-主張IDの接頭辞は C- とする。research/sources.md と research/extracted/ を読んでよい。
-抽出テキストは1冊40万字ある。grep で該当箇所を絞ってから読むこと。
-ページ番号は poppler 版では改ページ文字、pypdf 版では ===== PAGE n ===== の行で分かる。" \
+主張IDの接頭辞は C- とする。" \
   > "$WORK/codex.log" 2>&1
 ```
 
-Antigravity はヘッドレスでは `read_file` と `read_url` を拒否される。**資料に依らない見立てを出す役として使う。**
+Antigravity は [tools/agy.sh](../../tools/agy.sh) 経由で起動する。**`agy` を直に呼ばない。** 素の `agy` はヘッドレスで `read_file` と `read_url` を拒否するため、何も返さない。起動スクリプトが [.agents/permissions.json](../../.agents/permissions.json) の許可リストを渡す。
 
 ```bash
-agy --output-format text --print-timeout 15m \
+bash tools/agy.sh --output-format text --print-timeout 15m \
   --print "$(cat "$WORK/research-prompt.txt")
-主張IDの接頭辞は A- とする。ファイルとURLは読めない。渡された問いと自分の知識だけで答え、確からしさは原則「推測」とする。" \
+主張IDの接頭辞は A- とする。" \
   > "$TOPIC_DIR/31-antigravity.md" 2> "$WORK/agy.log"
 ```
 
 2つを起動したら、待たずに手順3へ進む。**終了は通知で受け取る。回収は手順4で行う。**
 
-#### Antigravity にも資料を読ませたい場合
-
-既定では、Antigravity は資料を読まない。読ませるには `~/.gemini/antigravity-cli/settings.json` に許可を足す。**これはリポジトリの外にある個人の設定であり、勝手に書き換えない。** 頼まれたときだけ、次の形を伝える。
-
-```json
-{
-  "permissions": {
-    "allow": ["read_file(*)", "read_url(*)"]
-  }
-}
-```
-
-`--dangerously-skip-permissions` でも通るが、書き込みとシェル実行まで自動で許可される。**読み取りだけが要るのだから、上の2つに絞る方が狭い。**
-
 ### 手順3 待つ間に自分で公開情報と書籍を調べる
 
 `researching-public-sources` を読み、`10-web.md` を書く。続けて `researching-book-sources` を読み、`20-books.md` を書く。
 
-**書籍の調査を省かない。** 手元の22冊はこの手引きの一次資料であり、外部AIは書籍を読めないか、読めても抽出テキストの範囲に限られる。
+**書籍の調査を省かない。** 外部AIも抽出テキストを読めるが、読むのは検索で当たった範囲だけである。どの本を選ぶかの判断は司会が持つ。
 
 ### 手順4 外部AIの結果を回収する
 

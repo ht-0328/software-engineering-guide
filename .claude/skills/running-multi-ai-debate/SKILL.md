@@ -58,7 +58,7 @@ WORK=$(mktemp -d) && echo "$WORK"
 
 **成果物の中身をプロンプトに直接入れる。ファイルのパスを渡さない。**
 
-理由は2つある。1つは、3者に同一の入力を与えないと批評を比べられないこと。もう1つは、Antigravity がヘッドレス実行のときに `read_file` と `read_url` を自動で拒否することである。
+理由は、3者に同一の入力を与えないと批評を比べられないためである。ファイルのパスを渡すと、読める範囲の違いがそのまま批評の差になり、意見の差と区別できなくなる。
 
 依頼文を組み立てる。
 
@@ -100,10 +100,12 @@ codex exec --cd "$PWD" --sandbox read-only --skip-git-repo-check \
 ```
 
 ```bash
-agy --output-format text --print-timeout 15m \
+bash tools/agy.sh --output-format text --print-timeout 15m \
   --print "$(cat "$WORK/critique-prompt.txt")" \
   > "$TOPIC_DIR/42-antigravity-critique.md" 2> "$WORK/agy.log"
 ```
+
+**`agy` を直に呼ばない。** 素の `agy` はヘッドレスで道具の使用を自動で拒否し、何も返さない。`tools/agy.sh` がリポジトリの許可リストを渡す。
 
 `$WORK` と `$TOPIC_DIR` は展開して書く。**背景の実行はシェルの変数を引き継がない。**
 

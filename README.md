@@ -5,7 +5,7 @@
 | これは何か | コードレビュー、テスト、設計、問題の見つけ方を、出典つきで整理するリポジトリ |
 | 本文 | [docs/index.md](docs/index.md) |
 | Webで読む | [公開サイト](https://ht-0328.github.io/software-engineering-guide/)（検索・目次つき） |
-| 版 | 0.3.0（[変更履歴](CHANGELOG.md)） |
+| 版 | 0.4.0（[変更履歴](CHANGELOG.md)） |
 | 作成者 | Claude（Opus 5） |
 | 機密区分 | 公開可 |
 | 想定読者 | システム開発でコードを書き、レビューし、テストし、設計する人 |
@@ -21,7 +21,7 @@
 
 ## いまどこまで進んでいるか
 
-**0.3.0 の時点で本文はまだ無い。** できているのは、置き場所と出典の一覧、書くときの規則、検査の道具である。章を書くための調査の仕組みも足した。
+**0.4.0 の時点で本文はまだ無い。** できているのは、置き場所と出典の一覧、書くときの規則、検査の道具である。章を書くための調査の仕組みも足した。
 
 | できているもの | 場所 |
 |---|---|
@@ -38,6 +38,9 @@
 ```text
 docs/                     手引きの本文（Markdown が正本）
 docs/adr/                 このリポジトリ自身の決定記録
+AGENTS.md                 codex と Antigravity 向けの指示書
+.agents/                  3者が共有するスキルと、Antigravity の設定
+.codex/                   codex の設定と、禁止コマンドの一覧
 research/sources.md       出典カタログ。出典IDの採番はここが一次情報
 research/notes/           書籍から抽出した一次ノート（出典ID1件につき1ファイル）
 research/external/        公開情報の調査結果（URLと確認日つき）
@@ -45,6 +48,7 @@ research/orchestration/   調査から文書までの中間成果物。題材ご
 research/extracted/       PDFから取り出した本文（Git管理外）
 templates/                章と観点の書式
 tools/                    検査と抽出の入口。中身はサブモジュールが持つ
+tools/agy.sh              リポジトリ専用の許可リストで Antigravity を動かす
 references/               参考書のPDF（Git管理外）
 engineering-docs-standard/  文書の書き方の標準（サブモジュール）
 .github/workflows/        検査と公開の自動実行

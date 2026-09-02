@@ -53,6 +53,27 @@
 
 中間成果物は `research/orchestration/<題材のスラッグ>/` に置き、Gitで追跡する。**外部AIの出力を置く前に、書籍の本文を長く写していないかを確かめる。**
 
+## 外部AI（codex と Antigravity）の設定
+
+**設定はすべてリポジトリの中にある。個人のグローバル設定を書き換えない。**
+
+| 置き場所 | 何が入っているか | 読む者 |
+|---|---|---|
+| [AGENTS.md](AGENTS.md) | 外部AI向けの指示書 | codex、Antigravity |
+| [.agents/skills/](.agents/skills/) | 3者が共有するスキル | 3者すべて |
+| [.agents/rules/](.agents/rules/) | 制約と発信元の許可 | Antigravity |
+| [.agents/permissions.json](.agents/permissions.json) | Antigravity の許可リスト | `tools/agy.sh` |
+| [.codex/config.toml](.codex/config.toml) | codex の設定 | codex |
+| [.codex/rules/](.codex/rules/) | codex の禁止コマンド | codex |
+
+**Antigravity は [tools/agy.sh](tools/agy.sh) 経由で起動する。** 素の `agy` はヘッドレスで道具の使用を自動で拒否し、何も返さない。
+
+```bash
+bash tools/agy.sh --output-format text --print "調べてほしいこと"
+```
+
+**codex と Antigravity はホストのCLIであり、Dockerの中では動かない。** 「道具はDockerの中で動かす」の対象は、この手引き自身の道具である。
+
 ## 道具の動かし方
 
 道具はすべてDockerの中で動かす。**ホストには何も入れない。** イメージは最初に1回だけ作る。
