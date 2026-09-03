@@ -1,0 +1,24 @@
+# このリポジトリでの codex の設定
+#
+# codex はリポジトリの根の .codex/config.toml を読み、
+# ~/.codex/config.toml へ重ねる。ここに書いた項目だけを上書きする。
+# 未知のキーは `codex exec --strict-config` が名前を挙げて弾く。
+#
+# 禁止コマンドと発信元の許可は .codex/rules/repository.rules にある。
+
+# 既定は読み取りのみとする。
+# 調査を頼む用途しか無く、docs/ と research/ への書き込みは
+# 依頼した側（Claude Code）が行うためである。
+sandbox_mode = "read-only"
+
+# 読み取りのみで動かすため、実行のたびに確認を求めない。
+approval_policy = "never"
+
+[sandbox_workspace_write]
+# 書き込みを許す設定で動かす場合でも、シェルからの通信は閉じる。
+# 外へ出る経路を、記録の残る組み込みのWeb検索1つに絞るためである。
+network_access = false
+
+[tools]
+# 公開情報の調査に要る。規格の版数と発行年は書籍の外にある。
+web_search = true

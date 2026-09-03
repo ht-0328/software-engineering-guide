@@ -30,6 +30,51 @@
 6. [zensical.toml](zensical.toml) の `nav` に章を足し、サイトが作れることを確かめる。
 7. [CHANGELOG.md](CHANGELOG.md) に版と変更を書く。
 
+## 調査から文書までを通しで作るとき
+
+**「〜についてのドキュメントを作って」と頼まれたら、`doc-research-orchestrator` エージェントに任せる。** 4系統で調べ、3者で議論し、決着をもとに文書を書くまでを通しで行う。定義は [エージェントの定義](.claude/agents/doc-research-orchestrator.md) にある。
+
+4系統は次のとおりである。
+
+- 公開情報の調査
+- 書籍の調査
+- codex
+- Antigravity
+
+各段の作法は5つのスキルが持つ。**エージェントを使わずに1段だけ行うこともできる。**
+
+| スキル | 扱う段 |
+|---|---|
+| `writing-interim-artifacts` | 中間成果物の書式 |
+| `researching-public-sources` | 公開情報の調査 |
+| `researching-book-sources` | 書籍の調査 |
+| `running-multi-ai-debate` | 3者による議論 |
+| `writing-docs-to-standard` | 標準に沿った執筆と検査 |
+
+中間成果物は `research/orchestration/<題材のスラッグ>/` に置き、Gitで追跡する。**外部AIの出力を置く前に、書籍の本文を長く写していないかを確かめる。**
+
+## 外部AI（codex と Antigravity）の設定
+
+**設定はすべてリポジトリの中にある。個人のグローバル設定を書き換えない。**
+
+| 置き場所 | 何が入っているか | 読む者 |
+|---|---|---|
+| [AGENTS.md](AGENTS.md) | 外部AI向けの指示書 | codex、Antigravity |
+| [.agents/skills/](.agents/skills/) | 3者が共有するスキル | 3者すべて |
+| [.agents/rules/](.agents/rules/) | 制約と発信元の許可 | Antigravity |
+| [.codex/config.toml](.codex/config.toml) | codex の設定 | codex |
+| [.codex/rules/](.codex/rules/) | codex の禁止コマンド | codex |
+
+**Antigravity の許可だけは、リポジトリの外にある。** `agy` はワークスペース側の設定を読まず、`~/.gemini/antigravity-cli/settings.json` の `permissions.allow` しか見ない。ここに `read_file`、`command`、取得を許すURLを入れてある。
+
+```bash
+agy --output-format text --print "調べてほしいこと"
+```
+
+**何も返らないときは、この許可が入っていない。** 標準エラーに、拒否された道具の名前が出る。
+
+**codex と Antigravity はホストのCLIであり、Dockerの中では動かない。** 「道具はDockerの中で動かす」の対象は、この手引き自身の道具である。
+
 ## 道具の動かし方
 
 道具はすべてDockerの中で動かす。**ホストには何も入れない。** イメージは最初に1回だけ作る。
