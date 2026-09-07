@@ -5,13 +5,13 @@
 | これは何か | コードレビュー、テスト、設計、問題の見つけ方を、出典つきで整理するリポジトリ |
 | 本文 | [docs/index.md](docs/index.md) |
 | Webで読む | [公開サイト](https://ht-0328.github.io/software-engineering-guide/)（検索・目次つき） |
-| 版 | 0.4.0（[変更履歴](CHANGELOG.md)） |
+| 版 | 0.7.0（[変更履歴](CHANGELOG.md)） |
 | 作成者 | Claude（Opus 5） |
 | 機密区分 | 公開可 |
 | 想定読者 | システム開発でコードを書き、レビューし、テストし、設計する人 |
 | 読んだあとできること | この手引きに章を足せる。根拠のたどり方が分かる |
 | 保守責任者 | このリポジトリの保守担当 |
-| 最終確認日 | 2026-09-03 |
+| 最終確認日 | 2026-09-08 |
 
 ## 3行で
 
@@ -21,10 +21,13 @@
 
 ## いまどこまで進んでいるか
 
-**0.4.0 の時点で本文はまだ無い。** できているのは、置き場所と出典の一覧、書くときの規則、検査の道具である。章を書くための調査の仕組みも足した。
+**0.7.0 の時点で本文があるのは3章である。** 残りの5章は予定である。
 
 | できているもの | 場所 |
 |---|---|
+| 本文 01 良いコードとは何か（観点17件） | [docs/01-good-code.md](docs/01-good-code.md) |
+| 本文 02 設計（観点16件） | [docs/02-design.md](docs/02-design.md) |
+| 本文 03 アーキテクチャ（観点18件） | [docs/03-architecture.md](docs/03-architecture.md) |
 | 出典カタログ（書籍22冊、出典IDつき） | [research/sources.md](research/sources.md) |
 | 章の予定と書式 | [docs/index.md](docs/index.md) |
 | 構成と規則の決定記録 | [docs/adr/ADR-001-repository-structure.md](docs/adr/ADR-001-repository-structure.md) |
@@ -43,6 +46,7 @@ AGENTS.md                 codex と Antigravity 向けの指示書
 .codex/                   codex の設定と、禁止コマンドの一覧
 research/sources.md       出典カタログ。出典IDの採番はここが一次情報
 research/notes/           書籍から抽出した一次ノート（出典ID1件につき1ファイル）
+research/cross-reference.md  原則と出典の対応。共通点と食い違いを記録する
 research/external/        公開情報の調査結果（URLと確認日つき）
 research/orchestration/   調査から文書までの中間成果物。題材ごとに1ディレクトリ
 research/extracted/       PDFから取り出した本文（Git管理外）
