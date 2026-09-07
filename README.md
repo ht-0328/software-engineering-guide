@@ -135,10 +135,12 @@ docker run --rm --user "$(id -u):$(id -g)" -v "$PWD:/w" -w /w guide-tools python
 **期待される出力**（末尾の3行）
 
 ```text
-下ごしらえしたページ: 2
-生成したページ: 2
+下ごしらえしたページ: 4
+生成したページ: 4
 出力先: /w/site
 ```
+
+**決定記録（`docs/adr/`）は公開サイトに出ない。** このリポジトリ自身の構成を決めた記録であり、手引きの読者向けではないためである。除いているのは [tools/build_site.py](tools/build_site.py) の `UNPUBLISHED` であり、そこへ向いたリンクは GitHub の URL に差し替わる。**記録そのものはリポジトリに残る。**
 
 開くときもDockerを使う。ブラウザで `http://127.0.0.1:8788/` を開く。止めるときは `Ctrl+C` を押す。
 
@@ -161,7 +163,7 @@ docker run --rm -p 8788:8788 -v "$PWD/site:/site:ro" -w /site guide-tools python
 3. **数値は目安として書く。** 出典の文脈から離れると、合否の基準に見えてしまう。
 4. **書籍の本文を長く転載しない。** 要約と、ページを指す出典IDを残す。
 5. **文書の書き方は [姉妹リポジトリの標準](engineering-docs-standard/docs/index.md) に従う。**
-6. **章を足したら [zensical.toml](zensical.toml) の `nav` にも足す。** 足さないと、サイドバーに出ない。
+6. **章を足したら [zensical.toml](zensical.toml) の `nav` にも足す。** 足さないと、サイドバーに出ない。**決定記録は足さない。** 公開サイトには出さないためである。
 
 章の足し方の手順は [ADR-001](docs/adr/ADR-001-repository-structure.md) にある。
 

@@ -21,6 +21,7 @@
 - [docs/index.md](docs/index.md) の章の一覧で、03 の状態を「未着手」から「公開ずみ」に変えた。扱う内容も「サービス分割、API、品質特性」から「責務の境界、フロントエンド・BFF・API の分担」に直した。
 - [zensical.toml](zensical.toml) の `nav` の「本文」に `03-architecture.md` を足した。
 - [README.md](README.md) の版と「いまどこまで進んでいるか」の表を直した。
+- 決定記録（`docs/adr/`）を公開サイトから外した。**このリポジトリ自身の構成を決めた記録であり、手引きの読者向けではない。** `zensical.toml` の `nav` から「決定記録」の分類を消し、[tools/build_site.py](tools/build_site.py) が下ごしらえの段階で `docs/adr/` を除くようにした。決定記録へ向いたリンクは GitHub の URL に差し替わる。**記録そのものはリポジトリに残る。**
 
 ### この章の根拠の弱いところ
 

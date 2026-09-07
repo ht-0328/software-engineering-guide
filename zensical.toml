@@ -24,16 +24,14 @@ site_dir = "site"
 extra_javascript = ["assets/mermaid.min.js", "assets/mermaid-init.js"]
 
 # サイドバーの並び。章を足したら、ここにも足す。
+# 決定記録（docs/adr/）はここに入れない。公開サイトには出さないためである。
+# 除いているのは tools/build_site.py の UNPUBLISHED である。
 nav = [
   { "はじめに" = ["index.md"] },
   { "本文" = [
       "01-good-code.md",
       "02-design.md",
       "03-architecture.md",
-  ] },
-  { "決定記録" = [
-      "adr/ADR-001-repository-structure.md",
-      "adr/ADR-002-publish-with-zensical.md",
   ] },
 ]
 
