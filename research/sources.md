@@ -7,7 +7,7 @@
 | 機密区分 | 公開可（書名と所在のみ。本文の転載は含まない） |
 | 想定読者 | この手引きを書く人。および、記述の根拠をたどる人 |
 | 保守責任者 | このリポジトリの保守担当 |
-| 最終確認日 | 2026-09-02 |
+| 最終確認日 | 2026-09-08 |
 
 ## 出典IDの読み方
 
@@ -71,7 +71,7 @@ PDFは `references/` に置く。**購入者ウォーターマーク（メール
 | 章（予定） | 主に使う出典 |
 |---|---|
 | 01 良いコードとは何か | `SRC-CODE-001`、`SRC-CODE-002`、`SRC-DESIGN-001` |
-| 02 設計 | `SRC-DESIGN-001`、`SRC-DESIGN-002`、`SRC-CODE-002` |
+| 02 設計 | `SRC-DESIGN-001`、`SRC-DESIGN-002`、`SRC-CODE-002`、`SRC-THINK-001` |
 | 03 アーキテクチャ | `SRC-ARCH-001`、`SRC-ARCH-002`、`SRC-ARCH-003` |
 | 04 コードレビュー | `SRC-REVIEW-001`、`SRC-CODE-001`、`SRC-CODE-002` |
 | 05 テスト | `SRC-TEST-001`、`SRC-TEST-002` |
@@ -85,12 +85,79 @@ PDFは `references/` に置く。**購入者ウォーターマーク（メール
 
 `SRC-EXT-<連番>` を割り当て、調査結果を `research/external/` に1件1ファイルで置く。**URLと確認日を必ず書く。** 書籍と違い、公開情報は書き換わるためである。
 
-この分野で参照する見込みのある公開情報を挙げる。**未調査である。**
+### 採番ずみの公開情報
+
+**章「01 良いコードとは何か」を書くために調べたものである。** 調査の記録は `research/external/` にある。
+
+| ID | 資料 | 発行者 | URL | 確認日 | 種別 |
+|---|---|---|---|---|---|
+| `SRC-EXT-001` | NIST Special Publication 500-235 Structured Testing（1996年、Watson・McCabe 著、Wallace 編） | NIST（米国国立標準技術研究所） | https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication500-235.pdf | 2026-09-07 | 標準化団体の公式文書 |
+| `SRC-EXT-002` | Martin Fowler「TwoHardThings」 | Martin Fowler（個人） | https://martinfowler.com/bliki/TwoHardThings.html | 2026-09-07 | 個人の公開文書 |
+| `SRC-EXT-003` | Martin Fowler「TestCoverage」 | Martin Fowler（個人） | https://martinfowler.com/bliki/TestCoverage.html | 2026-09-07 | 個人の公開文書 |
+| `SRC-EXT-004` | Google Java Style Guide | Google | https://google.github.io/styleguide/javaguide.html | 2026-09-07 | 公開されている社内標準 |
+| `SRC-EXT-005` | Martin Fowler「UnitTest」 | Martin Fowler（個人） | https://martinfowler.com/bliki/UnitTest.html | 2026-09-07 | 個人の公開文書 |
+| `SRC-EXT-006` | Google Engineering Practices（コードレビューで見るもの） | Google | https://google.github.io/eng-practices/review/reviewer/looking-for.html | 2026-09-07 | 公開されている社内標準 |
+
+**`SRC-EXT-001` だけが標準化団体の一次資料である。** 他の5件は、Google と個人が公開している文書であり、規格ではない。主張の重みを判断するときに区別する。
+
+**章「02 設計」を書くために調べたものを続けて採番した。** `SRC-EXT-007` から `SRC-EXT-015` である。
+
+| ID | 資料 | 発行者 | URL | 確認日 | 種別 |
+|---|---|---|---|---|---|
+| `SRC-EXT-007` | Robert C. Martin「The Single Responsibility Principle」（2014-05-08） | Robert C. Martin（個人） | https://blog.cleancoder.com/uncle-bob/2014/05/08/SingleReponsibilityPrinciple.html | 2026-09-07 | 個人の公開文書（原則の提唱者本人による解説） |
+| `SRC-EXT-008` | Sandi Metz「The Wrong Abstraction」（2016-01-20） | Sandi Metz（個人） | https://sandimetz.com/blog/2016/1/20/the-wrong-abstraction | 2026-09-07 | 個人の公開文書 |
+| `SRC-EXT-009` | Martin Fowler「Avoiding Repetition」（IEEE Software、2001年1-2月号 p.97-99） | IEEE Computer Society | https://www.martinfowler.com/ieeeSoftware/repetition.pdf | 2026-09-07 | 査読つき雑誌のコラム |
+| `SRC-EXT-010` | Robert C. Martin「Granularity」（The C++ Report、1996年11-12月号） | The C++ Report（DePaul 大学が写しを公開） | https://condor.depaul.edu/dmumaugh/OOT/Design-Principles/granularity.pdf | 2026-09-07 | 雑誌の記事本体 |
+| `SRC-EXT-011` | Martin Fowler「Yagni」（2015-05-26） | Martin Fowler（個人） | https://martinfowler.com/bliki/Yagni.html | 2026-09-07 | 個人の公開文書 |
+| `SRC-EXT-012` | Martin Fowler「Is Design Dead?」（2000-07 初出、2004-05 改訂） | Martin Fowler（個人） | https://www.martinfowler.com/articles/designDead.html | 2026-09-07 | 個人の公開文書 |
+| `SRC-EXT-013` | Java SE 21 API 仕様 `java.util.Objects` | Oracle | https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Objects.html | 2026-09-07 | 言語処理系の仕様書 |
+| `SRC-EXT-014` | Martin Fowler「DesignStaminaHypothesis」（2007-06-20） | Martin Fowler（個人） | https://martinfowler.com/bliki/DesignStaminaHypothesis.html | 2026-09-07 | 個人の公開文書 |
+| `SRC-EXT-015` | Kohavi ほか「Online Experimentation at Microsoft」（Microsoft ThinkWeek paper、2009年） | Microsoft（Experimentation Platform チーム） | https://ai.stanford.edu/~ronnyk/ExPThinkWeek2009Public.pdf | 2026-09-07 | 測定を行った当事者による報告 |
+
+**`SRC-EXT-009`、`SRC-EXT-010`、`SRC-EXT-013`、`SRC-EXT-015` の4件が一次資料である。** 掲載誌の記事本体、仕様書、測定の当事者による報告であるためである。**残る5件は個人が公開している文書であり、規格ではない。**
+
+**`SRC-EXT-007` は原則の提唱者本人が書いたものだが、原典ではない。** 原典は書籍 `Agile Software Development`（2002）であり、手元に無い。
+
+**章「03 アーキテクチャ」を書くために調べたものを続けて採番した。** `SRC-EXT-016` から `SRC-EXT-030` である。
+
+| ID | 資料 | 発行者 | URL | 確認日 | 種別 |
+|---|---|---|---|---|---|
+| `SRC-EXT-016` | Sam Newman「Backends For Frontends」（パターン定義ページ） | Sam Newman（個人） | https://samnewman.io/patterns/architectural/bff/ | 2026-09-08 | 個人の公開文書（パターンの命名者本人による定義） |
+| `SRC-EXT-017` | Phil Calçado「The Back-end for Front-end Pattern (BFF)」（2015-09-18） | Phil Calçado（個人） | https://philcalcado.com/2015/09/18/the_back_end_for_front_end_pattern_bff.html | 2026-09-08 | 個人の公開文書（導入した当事者の報告） |
+| `SRC-EXT-018` | Azure Architecture Center「Backends for Frontends pattern」（2025-03-19 版） | Microsoft | https://learn.microsoft.com/en-us/azure/architecture/patterns/backends-for-frontends | 2026-09-08 | 公開されている社内標準 |
+| `SRC-EXT-019` | OWASP「Input Validation Cheat Sheet」 | OWASP Foundation | https://cheatsheetseries.owasp.org/cheatsheets/Input_Validation_Cheat_Sheet.html | 2026-09-08 | 非営利団体が公開する指針 |
+| `SRC-EXT-020` | Martin Fowler「PresentationDomainDataLayering」 | Martin Fowler（個人） | https://martinfowler.com/bliki/PresentationDomainDataLayering.html | 2026-09-08 | 個人の公開文書 |
+| `SRC-EXT-021` | Martin Fowler「ConwaysLaw」（2022-10-20） | Martin Fowler（個人） | https://martinfowler.com/bliki/ConwaysLaw.html | 2026-09-08 | 個人の公開文書 |
+| `SRC-EXT-022` | Melvin E. Conway「How Do Committees Invent?」（Datamation 1968年4月号 p.28-31） | Datamation（著者本人が写しを公開） | https://www.melconway.com/Home/Committees_Paper.html | 2026-09-08 | 雑誌の記事本体 |
+| `SRC-EXT-023` | Roy T. Fielding 博士論文 第5章「Representational State Transfer (REST)」（2000年） | カリフォルニア大学アーバイン校 | https://www.ics.uci.edu/~fielding/pubs/dissertation/rest_arch_style.htm | 2026-09-08 | 学位論文の本体 |
+| `SRC-EXT-024` | GraphQL 仕様 Section 1「Overview」 | GraphQL Foundation | https://github.com/graphql/graphql-spec/blob/main/spec/Section%201%20--%20Overview.md | 2026-09-08 | 仕様書の本文（版は未確認） |
+| `SRC-EXT-025` | Alistair Cockburn「Hexagonal Architecture」（初出 2005-09-04） | Alistair Cockburn（個人） | https://alistair.cockburn.us/hexagonal-architecture/ | 2026-09-08 | 個人の公開文書（パターンの提唱者本人による定義） |
+| `SRC-EXT-026` | Michael Nygard「Documenting Architecture Decisions」（2011-11-15） | Cognitect | https://www.cognitect.com/blog/2011/11/15/documenting-architecture-decisions | 2026-09-08 | 企業のブログ（ADR の提唱者本人による定義） |
+| `SRC-EXT-027` | Barbacci ほか「Using the ATAM to Evaluate the Software Architecture for a Product Line of Avionics Systems」（CMU/SEI-2003-TN-012、2003年7月） | Carnegie Mellon University Software Engineering Institute | https://www.sei.cmu.edu/documents/2021/2003_004_001_14150.pdf | 2026-09-08 | 技術報告書の本体 |
+| `SRC-EXT-028` | Martin Fowler「MicroservicePremium」（2015-05-13） | Martin Fowler（個人） | https://martinfowler.com/bliki/MicroservicePremium.html | 2026-09-08 | 個人の公開文書 |
+| `SRC-EXT-029` | Martin Fowler「AnemicDomainModel」（2003-11-25） | Martin Fowler（個人） | https://martinfowler.com/bliki/AnemicDomainModel.html | 2026-09-08 | 個人の公開文書 |
+| `SRC-EXT-030` | Google AIP-121「Resource-oriented design」 | Google | https://google.aip.dev/121 | 2026-09-08 | 公開されている社内標準 |
+
+**一次資料は6件である。** `SRC-EXT-022`（記事本体）、`SRC-EXT-023`（学位論文）、`SRC-EXT-024`（仕様書）、`SRC-EXT-027`（技術報告書）と、パターンの提唱者本人が書いた `SRC-EXT-016`・`SRC-EXT-025` である。**残る9件は企業と個人の公開文書であり、規格ではない。**
+
+**`SRC-EXT-016` と `SRC-ARCH-002` は同じ著者（Sam Newman）が書いている。** 独立した2件として数えない。
+
+**`SRC-EXT-024` は版を確認できていない。** 公式サイト `https://spec.graphql.org/October2021/` が 2026-09-08 の時点で HTTP 403 を返したため、GitHub 上の原稿を読んだ。
+
+### 読もうとして読めなかったもの
+
+| 資料 | 状態 |
+|---|---|
+| ISO/IEC 25010（製品品質モデル） | `www.iso.org` の該当ページと ISO Online Browsing Platform が、2026-09-07 の時点でどちらも HTTP 403 を返した。**規格本体を読めていない。** 出典IDは振っていない |
+| Stevens・Myers・Constantine「Structured Design」（IBM Systems Journal 13(2)、1974） | 凝集度と結合度の原典である。ACM Digital Library の該当ページ（`https://dl.acm.org/doi/10.1147/sj.132.0115`）が 2026-09-07 の時点で HTTP 403 を返した。**本体を読めていない。** 出典IDは振っていない |
+| GoF『Design Patterns』（Gamma ほか、1994） | デザインパターンの原典である。電子版・紙版とも手元に無い。**章「02 設計」は `SRC-DESIGN-002` の記述で代えている。** 出典IDは振っていない |
+| ISO/IEC/IEEE 42010（アーキテクチャ記述） | 解説ページ `https://www.iso-architecture.org/42010/` への接続が 2026-09-08 に拒否された（`ECONNREFUSED`）。**規格本体を読めていない。** 出典IDは振っていない |
+| SEI「ATAM: Method for Architecture Evaluation」（CMU/SEI-2000-TR-004） | ATAM そのものの定義文書である。`apps.dtic.mil` の該当PDFが 2026-09-08 の時点で HTTP 403 を返した。**章「03 アーキテクチャ」は `SRC-EXT-027`（CMU/SEI-2003-TN-012）の要約で代えている** |
+
+### まだ調べていない公開情報
 
 | 候補 | 種別 |
 |---|---|
-| Google Engineering Practices（コードレビュー） | 公開されている社内標準 |
 | ISTQB シラバス、JSTQB | テスト技術の用語と体系 |
-| ISO/IEC 25010（システム／ソフトウェア品質モデル） | 国際規格 |
-| Martin Fowler の記事（リファクタリング、テスト分類） | 個人の公開文書 |
 | SWEBOK Guide | 知識体系 |
+| Martin Fowler の記事のうち、リファクタリングの手順を扱うもの | 個人の公開文書 |
