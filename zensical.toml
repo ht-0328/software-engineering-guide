@@ -33,6 +33,7 @@ nav = [
       "02-design.md",
       "03-architecture.md",
       "04-review.md",
+      "05-test.md",
   ] },
 ]
 

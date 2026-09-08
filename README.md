@@ -5,7 +5,7 @@
 | これは何か | コードレビュー、テスト、設計、問題の見つけ方を、出典つきで整理するリポジトリ |
 | 本文 | [docs/index.md](docs/index.md) |
 | Webで読む | [公開サイト](https://ht-0328.github.io/software-engineering-guide/)（検索・目次つき） |
-| 版 | 0.8.0（[変更履歴](CHANGELOG.md)） |
+| 版 | 0.9.0（[変更履歴](CHANGELOG.md)） |
 | 作成者 | Claude（Opus 5） |
 | 機密区分 | 公開可 |
 | 想定読者 | システム開発でコードを書き、レビューし、テストし、設計する人 |
@@ -21,7 +21,7 @@
 
 ## いまどこまで進んでいるか
 
-**0.8.0 の時点で本文があるのは4章である。** 残りの4章は予定である。
+**0.9.0 の時点で本文があるのは5章である。** 残りの3章は予定である。
 
 | できているもの | 場所 |
 |---|---|
@@ -29,6 +29,7 @@
 | 本文 02 設計（観点16件） | [docs/02-design.md](docs/02-design.md) |
 | 本文 03 アーキテクチャ（観点18件） | [docs/03-architecture.md](docs/03-architecture.md) |
 | 本文 04 コードレビュー（観点25件） | [docs/04-review.md](docs/04-review.md) |
+| 本文 05 テスト（観点28件） | [docs/05-test.md](docs/05-test.md) |
 | 出典カタログ（書籍22冊、出典IDつき） | [research/sources.md](research/sources.md) |
 | 章の予定と書式 | [docs/index.md](docs/index.md) |
 | 構成と規則の決定記録 | [docs/adr/ADR-001-repository-structure.md](docs/adr/ADR-001-repository-structure.md) |
@@ -136,8 +137,8 @@ docker run --rm --user "$(id -u):$(id -g)" -v "$PWD:/w" -w /w guide-tools python
 **期待される出力**（末尾の3行）
 
 ```text
-下ごしらえしたページ: 5
-生成したページ: 5
+下ごしらえしたページ: 6
+生成したページ: 6
 出力先: /w/site
 ```
 

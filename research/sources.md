@@ -168,6 +168,30 @@ PDFは `references/` に置く。**購入者ウォーターマーク（メール
 
 **`SRC-EXT-041` はコードレビューのために書かれた文書ではない。** 仕様書の記述水準を示すためのものであり、同文書の第6節は、これらの語を控えめに使うよう求めている。章「04 コードレビュー」は、この点を観点 `RV-22` で扱う。
 
+**章「05 テスト」を書くために調べたものを続けて採番した。** `SRC-EXT-042` から `SRC-EXT-052` である。
+
+| ID | 資料 | 発行者 | URL | 確認日 | 種別 |
+|---|---|---|---|---|---|
+| `SRC-EXT-042` | ISTQB Certified Tester Foundation Level Syllabus v4.0.1（2024-09-15 発行。v4.0 は 2023-04-21） | International Software Testing Qualifications Board | https://istqb.org/wp-content/uploads/2024/11/ISTQB_CTFL_Syllabus_v4.0.1.pdf | 2026-09-08 | 資格制度の本体文書 |
+| `SRC-EXT-043` | Martin Fowler「TestPyramid」（2012-05-01） | Martin Fowler（個人） | https://martinfowler.com/bliki/TestPyramid.html | 2026-09-08 | 個人の公開文書 |
+| `SRC-EXT-044` | Ham Vocke「The Practical Test Pyramid」（2018-02-26） | martinfowler.com | https://martinfowler.com/articles/practical-test-pyramid.html | 2026-09-08 | 個人の公開文書 |
+| `SRC-EXT-045` | Mike Wacker「Just Say No to More End-to-End Tests」（2015-04-22） | Google Testing Blog | https://testing.googleblog.com/2015/04/just-say-no-to-more-end-to-end-tests.html | 2026-09-08 | 公開されている社内の見解 |
+| `SRC-EXT-046` | Simon Stewart「Test Sizes」（2010-12-13） | Google Testing Blog | https://testing.googleblog.com/2010/12/test-sizes.html | 2026-09-08 | 公開されている社内標準 |
+| `SRC-EXT-047` | Alex Eagle「Testing on the Toilet: Change-Detector Tests Considered Harmful」（2015-01-27） | Google Testing Blog | https://testing.googleblog.com/2015/01/testing-on-toilet-change-detector-tests.html | 2026-09-08 | 公開されている社内標準 |
+| `SRC-EXT-048` | Andrew Trenk「Testing on the Toilet: Test Behavior, Not Implementation」（2013-08-05） | Google Testing Blog | https://testing.googleblog.com/2013/08/testing-on-toilet-test-behavior-not.html | 2026-09-08 | 公開されている社内標準 |
+| `SRC-EXT-049` | Andrew Trenk「Testing on the Toilet: Writing Descriptive Test Names」（2014-10-16） | Google Testing Blog | https://testing.googleblog.com/2014/10/testing-on-toilet-writing-descriptive.html | 2026-09-08 | 公開されている社内標準 |
+| `SRC-EXT-050` | Kuhn・Wallace・Gallo「Software Fault Interactions and Implications for Software Testing」（IEEE Transactions on Software Engineering 30(6)、2004年6月、p.418-421） | NIST（著者の所属。NIST が原稿を公開） | https://csrc.nist.gov/CSRC/media/Projects/automated-combinatorial-testing-for-software/documents/kuhn-wallace-gallo-tse-preprint.pdf | 2026-09-08 | 査読つき論文の本体 |
+| `SRC-EXT-051` | IPA/SEC「組込みソフトウェア開発における品質向上の勧め［バグ管理手法編］」（SEC BOOKS、2013年） | 独立行政法人情報処理推進機構 | https://www.ipa.go.jp/archive/publish/qv6pgp00000010b6-att/000027629.pdf | 2026-09-08 | 公的機関の刊行物 |
+| `SRC-EXT-052` | 西康晴「テスト観点に基づくテスト開発方法論 VSTeP の概要」（2013-04-03） | 電気通信大学（提唱者本人が公開） | https://qualab.jp/materials/VSTeP.130403.bw.pdf | 2026-09-08 | 提唱者本人の公開資料 |
+
+**一次資料は4件である。** 査読つき論文の本体（`SRC-EXT-050`）、資格制度の本体文書（`SRC-EXT-042`）、公的機関の刊行物（`SRC-EXT-051`）、方法論の提唱者本人の資料（`SRC-EXT-052`）である。**Google の5件と個人の2件は、規格ではない。**
+
+**`SRC-EXT-045` から `SRC-EXT-049` は、同じ Google Testing Blog の5件である。** 発行者は1つであり、独立した5件として数えない。
+
+**`SRC-EXT-050` は過去の4研究をまとめている。** 医療機器、Webブラウザ、HTTPサーバ、NASA の分散システムの測定値を1本の論文が並べたものである。**独立した4件として数えない。**
+
+**`SRC-EXT-042` は資格制度のシラバスであり、規格ではない。** ISO/IEC/IEEE 29119 を読めていないため、章「05 テスト」の技法の定義はこの文書の記述で代えている。
+
 ### 読もうとして読めなかったもの
 
 | 資料 | 状態 |
@@ -179,12 +203,17 @@ PDFは `references/` に置く。**購入者ウォーターマーク（メール
 | SEI「ATAM: Method for Architecture Evaluation」（CMU/SEI-2000-TR-004） | ATAM そのものの定義文書である。`apps.dtic.mil` の該当PDFが 2026-09-08 の時点で HTTP 403 を返した。**章「03 アーキテクチャ」は `SRC-EXT-027`（CMU/SEI-2003-TN-012）の要約で代えている** |
 | IEEE Std 1028-2008「Software Reviews and Audits」 | レビューの種類と手順を定めた規格である。`standards.ieee.org` の該当ページが 2026-09-08 の時点で HTTP 403 を返し、IEEE Xplore は HTTP 202 を返して本文を返さなかった。**規格本体を読めていない。** 出典IDは振っていない |
 | Chromium「Respectful Code Reviews」（`cr_respect.md`） | `SRC-CODE-002` 17.4.3 が訳出して紹介している指針である。**原典を開いていない。** 章「04 コードレビュー」は同書の訳出を根拠にしている。出典IDは振っていない |
+| ISO/IEC/IEEE 29119-4「Test techniques」（2021年） | テスト技法を定めた規格である。`www.iso.org` の該当ページが 2026-09-08 の時点で HTTP 403 を返した。**規格本体を読めていない。** 章「05 テスト」は `SRC-EXT-042` の記述で代えている |
+| SWEBOK Guide v4.0「Software Testing」章（2024年10月） | IEEE Computer Society のページが申込みの入力を求め、`swebokwiki.org` が HTTP 403 を返した。**本体を読めていない。** 出典IDは振っていない |
+| ISTQB「Certified Tester Test Automation Strategy Syllabus v1.0」 | 自動化の投資回収を扱う文書である。**開いていない。** 章「05 テスト」は、この文書を根拠にした主張を採っていない |
+| James Bach「Good Enough Quality: Beyond the Buzzword」（1997年） | `SRC-TEST-002` 7-3 が引いている論文である。**原典を開いていない。** 同書の記述を根拠にしている |
+| Kent Beck「Test Desiderata」 | テストの望ましい12の性質を挙げた文書である。Medium が HTTP 403 を返し、著者のリポジトリからも取得できなかった。**主張に採っていない** |
 
 ### まだ調べていない公開情報
 
 | 候補 | 種別 |
 |---|---|
-| ISTQB シラバス、JSTQB | テスト技術の用語と体系 |
+| JSTQB が公開する日本語版シラバスと用語集 | テスト技術の用語と体系。英語版の `SRC-EXT-042` で代えている |
 | SWEBOK Guide | 知識体系 |
 | Martin Fowler の記事のうち、リファクタリングの手順を扱うもの | 個人の公開文書 |
 | 日本の企業が公開するコードレビューの基準 | 公開されている社内標準 |
