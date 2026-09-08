@@ -144,6 +144,30 @@ PDFは `references/` に置く。**購入者ウォーターマーク（メール
 
 **`SRC-EXT-024` は版を確認できていない。** 公式サイト `https://spec.graphql.org/October2021/` が 2026-09-08 の時点で HTTP 403 を返したため、GitHub 上の原稿を読んだ。
 
+**章「04 コードレビュー」を書くために調べたものを続けて採番した。** `SRC-EXT-031` から `SRC-EXT-041` である。
+
+| ID | 資料 | 発行者 | URL | 確認日 | 種別 |
+|---|---|---|---|---|---|
+| `SRC-EXT-031` | Google Engineering Practices「Navigating a CL in Review」 | Google | https://google.github.io/eng-practices/review/reviewer/navigate.html | 2026-09-08 | 公開されている社内標準 |
+| `SRC-EXT-032` | Google Engineering Practices「Small CLs」 | Google | https://google.github.io/eng-practices/review/developer/small-cls.html | 2026-09-08 | 公開されている社内標準 |
+| `SRC-EXT-033` | Google Engineering Practices「Handling Pushback in Code Reviews」 | Google | https://google.github.io/eng-practices/review/reviewer/pushback.html | 2026-09-08 | 公開されている社内標準 |
+| `SRC-EXT-034` | Google Engineering Practices「Emergencies」 | Google | https://google.github.io/eng-practices/review/emergencies.html | 2026-09-08 | 公開されている社内標準 |
+| `SRC-EXT-035` | Conventional Comments（Paul Slaughter、CC BY 3.0） | conventionalcomments.org | https://conventionalcomments.org/ | 2026-09-08 | 規約の本体 |
+| `SRC-EXT-036` | GitLab「Code Review Guidelines」 | GitLab | https://docs.gitlab.com/development/code_review/ | 2026-09-08 | 公開されている社内標準 |
+| `SRC-EXT-037` | Sadowski ほか「Modern Code Review: A Case Study at Google」（ICSE-SEIP 2018、p.181-190） | ACM（著者が写しを公開） | https://sback.it/publications/icse2018seip.pdf | 2026-09-08 | 査読つき論文の本体 |
+| `SRC-EXT-038` | Bacchelli・Bird「Expectations, Outcomes, and Challenges of Modern Code Review」（ICSE 2013、p.712-721） | Microsoft Research | https://www.microsoft.com/en-us/research/wp-content/uploads/2016/02/ICSE202013-codereview.pdf | 2026-09-08 | 査読つき論文の本体 |
+| `SRC-EXT-039` | Bosu・Greiler・Bird「Characteristics of Useful Code Reviews: An Empirical Study at Microsoft」（MSR 2015） | 著者が写しを公開 | https://www.amiangshu.com/papers/CodeReview-MSR-2015.pdf | 2026-09-08 | 査読つき論文の本体 |
+| `SRC-EXT-040` | SmartBear「Best Kept Secrets of Peer Code Review」（Cisco MeetingPlace の事例研究、2006年） | SmartBear Software | https://static0.smartbear.co/smartbear/media/pdfs/best-kept-secrets-of-peer-code-review_redirected.pdf | 2026-09-08 | 測定した当事者の報告 |
+| `SRC-EXT-041` | RFC 2119「Key words for use in RFCs to Indicate Requirement Levels」（BCP 14、1997年3月、S. Bradner） | IETF | https://datatracker.ietf.org/doc/html/rfc2119 | 2026-09-08 | 標準化団体の文書の本体 |
+
+**一次資料は5件である。** 査読つき論文3件（`SRC-EXT-037`、`SRC-EXT-038`、`SRC-EXT-039`）、規約の本体（`SRC-EXT-035`）、標準化団体の文書（`SRC-EXT-041`）である。**Google の4件と GitLab の1件は公開された社内標準であり、規格ではない。**
+
+**`SRC-EXT-040` は測定の当事者による報告だが、発行者は利害関係を持つ。** SmartBear はレビューの道具を販売しており、この文書は自社の道具で集めた指標を分析したものである。**対象は2006年5月までの2500件であり、1社1部門の事例研究である。**
+
+**`SRC-EXT-031` から `SRC-EXT-034` は `SRC-EXT-006` と同じサイトにある。** `SRC-EXT-006` は `standard.html`、`looking-for.html`、`comments.html`、`speed.html` の4ページを指す。**重複しないよう、この4ページは `SRC-EXT-006` のままとした。**
+
+**`SRC-EXT-041` はコードレビューのために書かれた文書ではない。** 仕様書の記述水準を示すためのものであり、同文書の第6節は、これらの語を控えめに使うよう求めている。章「04 コードレビュー」は、この点を観点 `RV-22` で扱う。
+
 ### 読もうとして読めなかったもの
 
 | 資料 | 状態 |
@@ -153,6 +177,8 @@ PDFは `references/` に置く。**購入者ウォーターマーク（メール
 | GoF『Design Patterns』（Gamma ほか、1994） | デザインパターンの原典である。電子版・紙版とも手元に無い。**章「02 設計」は `SRC-DESIGN-002` の記述で代えている。** 出典IDは振っていない |
 | ISO/IEC/IEEE 42010（アーキテクチャ記述） | 解説ページ `https://www.iso-architecture.org/42010/` への接続が 2026-09-08 に拒否された（`ECONNREFUSED`）。**規格本体を読めていない。** 出典IDは振っていない |
 | SEI「ATAM: Method for Architecture Evaluation」（CMU/SEI-2000-TR-004） | ATAM そのものの定義文書である。`apps.dtic.mil` の該当PDFが 2026-09-08 の時点で HTTP 403 を返した。**章「03 アーキテクチャ」は `SRC-EXT-027`（CMU/SEI-2003-TN-012）の要約で代えている** |
+| IEEE Std 1028-2008「Software Reviews and Audits」 | レビューの種類と手順を定めた規格である。`standards.ieee.org` の該当ページが 2026-09-08 の時点で HTTP 403 を返し、IEEE Xplore は HTTP 202 を返して本文を返さなかった。**規格本体を読めていない。** 出典IDは振っていない |
+| Chromium「Respectful Code Reviews」（`cr_respect.md`） | `SRC-CODE-002` 17.4.3 が訳出して紹介している指針である。**原典を開いていない。** 章「04 コードレビュー」は同書の訳出を根拠にしている。出典IDは振っていない |
 
 ### まだ調べていない公開情報
 
@@ -161,3 +187,4 @@ PDFは `references/` に置く。**購入者ウォーターマーク（メール
 | ISTQB シラバス、JSTQB | テスト技術の用語と体系 |
 | SWEBOK Guide | 知識体系 |
 | Martin Fowler の記事のうち、リファクタリングの手順を扱うもの | 個人の公開文書 |
+| 日本の企業が公開するコードレビューの基準 | 公開されている社内標準 |
