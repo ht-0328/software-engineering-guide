@@ -76,7 +76,7 @@ PDFは `references/` に置く。**購入者ウォーターマーク（メール
 | 04 コードレビュー | `SRC-REVIEW-001`、`SRC-CODE-001`、`SRC-CODE-002` |
 | 05 テスト | `SRC-TEST-001`、`SRC-TEST-002` |
 | 06 問題の見つけ方 | `SRC-THINK-001`、`SRC-ARCH-001`、`SRC-TEST-001`、`SRC-CODE-002` |
-| 07 仕事の進め方 | `SRC-THINK-001`、`SRC-REVIEW-001`、`SRC-ARCH-001` |
+| 07 仕事の進め方 | `SRC-REVIEW-001`、`SRC-ARCH-001`、`SRC-ARCH-002`、`SRC-THINK-001`、`SRC-TEST-001`、`SRC-DESIGN-001` |
 | 08 画面とインターフェースの設計 | `SRC-UI-001`、`SRC-UI-002`、`SRC-ARCH-003` |
 
 `SRC-CLOUD-001`、`SRC-CLOUD-002`、`SRC-AI-001` から `SRC-AI-003` は、上の章の主たる根拠にはしない。**特定の技術に依存する内容であり、この手引きが扱う「考え方」とは寿命が違う。** 章を立てる場合は分けて置く。
@@ -223,6 +223,41 @@ PDFは `references/` に置く。**購入者ウォーターマーク（メール
 
 **`SRC-EXT-066` は業界団体の指針であり、規格ではない。** 章「06 問題の見つけ方」は、記録する項目の一覧をこの資料の記述で代えている。
 
+**章「07 仕事の進め方」を書くために調べたものを続けて採番した。** `SRC-EXT-067` から `SRC-EXT-084` である。
+
+| ID | 資料 | 発行者 | URL | 確認日 | 種別 |
+|---|---|---|---|---|---|
+| `SRC-EXT-067` | Magne Jørgensen「Practical Guidelines for Expert-Judgment-Based Software Effort Estimation」（IEEE Software 22(3)、2005年5-6月号） | IEEE Computer Society（Simula Research Laboratory が原稿を公開） | https://web-backend.simula.no/sites/default/files/publications/Jorgensen.2005.3.pdf | 2026-09-09 | 査読つき雑誌の記事 |
+| `SRC-EXT-068` | Bent Flyvbjerg「From Nobel Prize to Project Management: Getting Risks Right」（Project Management Journal 37(3)、2006年8月、p.5-15。arXiv:1302.3642） | Project Management Journal（著者が原稿を公開） | https://arxiv.org/pdf/1302.3642 | 2026-09-09 | 査読つき雑誌の記事の原稿 |
+| `SRC-EXT-069` | The Scrum Guide（2020年11月版。Ken Schwaber、Jeff Sutherland） | Scrum.org / Scrum Alliance | https://scrumguides.org/scrum-guide.html | 2026-09-09 | 枠組みの定義文書 |
+| `SRC-EXT-070` | Bill Wake「INVEST in Good Stories, and SMART Tasks」（2003-08-17 初出） | Bill Wake（個人） | https://xp123.com/invest-in-good-stories-and-smart-tasks/ | 2026-09-09 | 頭字語の提唱者本人の文書 |
+| `SRC-EXT-071` | DORA「Work in small batches」（2025-12-08 更新） | Google Cloud（DORA） | https://dora.dev/capabilities/working-in-small-batches/ | 2026-09-09 | 公開されている社内標準 |
+| `SRC-EXT-072` | NASA Work Breakdown Structure (WBS) Handbook（NASA/SP-2016-3404 Rev.1） | NASA | https://essp.larc.nasa.gov/EVM-3/pdf_files/NASA_WBS_Handbook_20180000844.pdf | 2026-09-09 | 政府機関の手引き |
+| `SRC-EXT-073` | Conventional Commits 1.0.0 | conventionalcommits.org | https://www.conventionalcommits.org/en/v1.0.0/ | 2026-09-09 | 規約の本体 |
+| `SRC-EXT-074` | Keep a Changelog 1.1.0（2019-02-15） | keepachangelog.com（Olivier Lacan） | https://keepachangelog.com/en/1.1.0/ | 2026-09-09 | 規約の本体 |
+| `SRC-EXT-075` | Semantic Versioning 2.0.0 | semver.org（Tom Preston-Werner） | https://semver.org/spec/v2.0.0.html | 2026-09-09 | 規約の本体 |
+| `SRC-EXT-076` | Git「SubmittingPatches」 | Git プロジェクト | https://git-scm.com/docs/SubmittingPatches | 2026-09-09 | 道具の公式文書 |
+| `SRC-EXT-077` | Google Engineering Practices「Writing good CL descriptions」 | Google | https://google.github.io/eng-practices/review/developer/cl-descriptions.html | 2026-09-09 | 公開されている社内標準 |
+| `SRC-EXT-078` | RFC 7282「On Consensus and Humming in the IETF」（2014年6月、Informational、P. Resnick） | IETF | https://www.rfc-editor.org/rfc/rfc7282.html | 2026-09-09 | 標準化団体の文書の本体 |
+| `SRC-EXT-079` | RFC 2418「IETF Working Group Guidelines and Procedures」（BCP 25、1998年9月、S. Bradner 編） | IETF | https://www.rfc-editor.org/rfc/rfc2418.html | 2026-09-09 | 標準化団体の文書の本体 |
+| `SRC-EXT-080` | Manifesto for Agile Software Development「Principles behind the Agile Manifesto」（2001年） | 宣言の署名者17名 | https://agilemanifesto.org/principles.html | 2026-09-09 | 提唱者本人たちの宣言 |
+| `SRC-EXT-081` | Kanban Guide v2025.5（2025-05-01 更新。John Coleman ほか） | kanbanguides.org | https://kanbanguides.org/english/ | 2026-09-09 | 枠組みの定義文書 |
+| `SRC-EXT-082` | IPA/SEC『ITユーザとベンダのための定量的見積りの勧め』（SEC BOOKS） | 独立行政法人情報処理推進機構 | https://www.ipa.go.jp/archive/publish/qv6pgp0000000wvg-att/000005104.pdf | 2026-09-09 | 公的機関の刊行物 |
+| `SRC-EXT-083` | IPA「機能要件の合意形成ガイド」（2010年3月公開） | 独立行政法人情報処理推進機構 | https://www.ipa.go.jp/archive/digital/iot-en-ci/jyouryuu/ent03-a.html | 2026-09-09 | 公的機関の公開指針 |
+| `SRC-EXT-084` | IPA『アジャイル型開発におけるプラクティス活用事例調査 調査報告書～ガイド編～』（2013-03-19） | 独立行政法人情報処理推進機構 | https://www.ipa.go.jp/archive/files/000026849.pdf | 2026-09-09 | 公的機関による事例調査 |
+
+**一次資料は6件である。** 査読つき雑誌の記事2件（`SRC-EXT-067`、`SRC-EXT-068`）、標準化団体の文書2件（`SRC-EXT-078`、`SRC-EXT-079`）、公的機関の刊行物2件（`SRC-EXT-082`、`SRC-EXT-083`）である。**規約3件（`SRC-EXT-073` から `SRC-EXT-075`）と枠組みの定義文書2件（`SRC-EXT-069`、`SRC-EXT-081`）は、規格ではない。**
+
+**`SRC-EXT-069` の本文に「Definition of Ready」と「ストーリーポイント」の語は無い。** 2026-09-09 に全文で確かめた。章「07 仕事の進め方」の `WF-22` は、この事実を根拠に「Definition of Ready」の語を使わない。
+
+**`SRC-EXT-068` の対象は交通基盤の建設であり、ソフトウェア開発ではない。** 同論文は IT システムも同じ傾向を示すとするが、その根拠は同著者の別の書籍である。
+
+**`SRC-EXT-072` は `ntrs.nasa.gov` の該当URLが 2026-09-09 の時点で HTTP 404 を返した。** NASA Langley Research Center が公開する写しを読んだ。
+
+**`SRC-EXT-077` は `SRC-EXT-006` および `SRC-EXT-031` から `SRC-EXT-034` と同じサイトにある。** `SRC-EXT-006` が指す4ページとは重ならないため、新しい番号を振った。**発行者は1つであり、独立した件数として数えない。**
+
+**`SRC-EXT-082` から `SRC-EXT-084` は、いずれも同じ発行者（IPA）である。** 独立した3件として数えない。
+
 ### 読もうとして読めなかったもの
 
 | 資料 | 状態 |
@@ -245,6 +280,12 @@ PDFは `references/` に置く。**購入者ウォーターマーク（メール
 | Leveson「A New Accident Model for Engineering Safer Systems」（Safety Science 42(4)、2004、p.237-270） | 直線的な因果モデルへの批判である。`sunnyday.mit.edu` への接続が 2026-09-08 に拒否された（`ECONNREFUSED`）。**同じ向きの主張は `SRC-EXT-061` で代えている。** 出典IDは振っていない |
 | Wason「On the failure to eliminate hypotheses in a conceptual task」（Quarterly Journal of Experimental Psychology 12(3)、1960、p.129-140） | 確証バイアスの原典である。出版社の頁が本文を返さなかった。**章「06 問題の見つけ方」は認知バイアスの名前を使っていない。** 出典IDは振っていない |
 | David Agans『Debugging』、Andreas Zeller『Why Programs Fail』 | 外部AI（Antigravity）が根拠に挙げた書籍である。**手元に無く、抽出テキストも無い。** 章「06 問題の見つけ方」は、この2冊を根拠にした主張を採っていない。出典IDは振っていない |
+| PMBOK Guide、PMI「Practice Standard for Work Breakdown Structures」 | 作業分解構造の公式な定義である。**どちらも有料であり、本文を読めていない。** 章「07 仕事の進め方」は `SRC-EXT-072`（NASA の手引き）で代えている。出典IDは振っていない |
+| ISO/IEC/IEEE 29148:2018「Requirements engineering」（再掲） | `iso.org` と `standards.ieee.org` が 2026-09-09 の時点でどちらも HTTP 403 を返した。**章「07 仕事の進め方」は `SRC-EXT-083`（IPA の合意形成ガイド）で代えている** |
+| Steve McConnell『Software Estimation: Demystifying the Black Art』（2006） | 「見積り・目標・約束」の三分法の出どころとして広く引かれる。**書籍であり手元に無い。** 章「07 仕事の進め方」は `SRC-EXT-067` の3つの語で代えている。出典IDは振っていない |
+| Barry Boehm『Software Engineering Economics』（1981） | 「不確実性の錐」の原典である。**書籍であり手元に無い。** 章「07 仕事の進め方」はこの語を使っていない。出典IDは振っていない |
+| Standish Group「CHAOS Report」 | 案件の成否の統計である。**有料であり本文を読めない。** 章「07 仕事の進め方」は数値を使っていない。出典IDは振っていない |
+| Donald Reinertsen『The Principles of Product Development Flow』、Daniel Vacanti『Actionable Agile Metrics for Predictability』、Eliyahu Goldratt『Critical Chain』、Mike Cohn の相対見積りの著作 | 外部AI（Antigravity）が根拠に挙げた書籍である。**いずれも手元に無く、抽出テキストも無い。** 章「07 仕事の進め方」は、この4冊を根拠にした主張を採っていない。出典IDは振っていない |
 
 ### まだ調べていない公開情報
 

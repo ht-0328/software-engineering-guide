@@ -5,13 +5,13 @@
 | これは何か | コードレビュー、テスト、設計、問題の見つけ方を、出典つきで整理するリポジトリ |
 | 本文 | [docs/index.md](docs/index.md) |
 | Webで読む | [公開サイト](https://ht-0328.github.io/software-engineering-guide/)（検索・目次つき） |
-| 版 | 0.10.0（[変更履歴](CHANGELOG.md)） |
+| 版 | 0.11.0（[変更履歴](CHANGELOG.md)） |
 | 作成者 | Claude（Opus 5） |
 | 機密区分 | 公開可 |
 | 想定読者 | システム開発でコードを書き、レビューし、テストし、設計する人 |
 | 読んだあとできること | この手引きに章を足せる。根拠のたどり方が分かる |
 | 保守責任者 | このリポジトリの保守担当 |
-| 最終確認日 | 2026-09-08 |
+| 最終確認日 | 2026-09-09 |
 
 ## 3行で
 
@@ -21,7 +21,7 @@
 
 ## いまどこまで進んでいるか
 
-**0.10.0 の時点で本文があるのは6章である。** 残りの2章は予定である。
+**0.11.0 の時点で本文があるのは7章である。** 残りの1章は予定である。
 
 | できているもの | 場所 |
 |---|---|
@@ -31,6 +31,7 @@
 | 本文 04 コードレビュー（観点25件） | [docs/04-review.md](docs/04-review.md) |
 | 本文 05 テスト（観点28件） | [docs/05-test.md](docs/05-test.md) |
 | 本文 06 問題の見つけ方（観点23件） | [docs/06-problem-finding.md](docs/06-problem-finding.md) |
+| 本文 07 仕事の進め方（観点35件） | [docs/07-workflow.md](docs/07-workflow.md) |
 | 出典カタログ（書籍22冊、出典IDつき） | [research/sources.md](research/sources.md) |
 | 章の予定と書式 | [docs/index.md](docs/index.md) |
 | 構成と規則の決定記録 | [docs/adr/ADR-001-repository-structure.md](docs/adr/ADR-001-repository-structure.md) |
@@ -138,8 +139,8 @@ docker run --rm --user "$(id -u):$(id -g)" -v "$PWD:/w" -w /w guide-tools python
 **期待される出力**（末尾の3行）
 
 ```text
-下ごしらえしたページ: 7
-生成したページ: 7
+下ごしらえしたページ: 8
+生成したページ: 8
 出力先: /w/site
 ```
 
