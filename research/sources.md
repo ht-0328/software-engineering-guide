@@ -75,7 +75,7 @@ PDFは `references/` に置く。**購入者ウォーターマーク（メール
 | 03 アーキテクチャ | `SRC-ARCH-001`、`SRC-ARCH-002`、`SRC-ARCH-003` |
 | 04 コードレビュー | `SRC-REVIEW-001`、`SRC-CODE-001`、`SRC-CODE-002` |
 | 05 テスト | `SRC-TEST-001`、`SRC-TEST-002` |
-| 06 問題の見つけ方 | `SRC-THINK-001`、`SRC-ARCH-001` |
+| 06 問題の見つけ方 | `SRC-THINK-001`、`SRC-ARCH-001`、`SRC-TEST-001`、`SRC-CODE-002` |
 | 07 仕事の進め方 | `SRC-THINK-001`、`SRC-REVIEW-001`、`SRC-ARCH-001` |
 | 08 画面とインターフェースの設計 | `SRC-UI-001`、`SRC-UI-002`、`SRC-ARCH-003` |
 
@@ -192,6 +192,37 @@ PDFは `references/` に置く。**購入者ウォーターマーク（メール
 
 **`SRC-EXT-042` は資格制度のシラバスであり、規格ではない。** ISO/IEC/IEEE 29119 を読めていないため、章「05 テスト」の技法の定義はこの文書の記述で代えている。
 
+**章「06 問題の見つけ方」を書くために調べたものを続けて採番した。** `SRC-EXT-053` から `SRC-EXT-066` である。
+
+| ID | 資料 | 発行者 | URL | 確認日 | 種別 |
+|---|---|---|---|---|---|
+| `SRC-EXT-053` | Frederick P. Brooks, Jr.「No Silver Bullet: Essence and Accidents of Software Engineering」（UNC TR86-020、1986年9月。IEEE Computer 1987年4月号の原稿） | University of North Carolina at Chapel Hill | https://www.cs.unc.edu/techreports/86-020.pdf | 2026-09-08 | 著者の技術報告 |
+| `SRC-EXT-054` | IREB CPRE Foundation Level Syllabus v3.2.0（2024-02-26 発行。Stan Bühne、Martin Glinz） | International Requirements Engineering Board | https://isqi.org/media/7f/9a/3e/1744288053/cpre_foundationlevel_syllabus_EN_v.3.2.pdf | 2026-09-08 | 資格制度の本体文書 |
+| `SRC-EXT-055` | Edsger W. Dijkstra「The Humble Programmer」（EWD340、1972年 ACM チューリング賞講演） | University of Texas at Austin（著者の草稿を公開） | https://www.cs.utexas.edu/~EWD/transcriptions/EWD03xx/EWD340.html | 2026-09-08 | 著者本人の草稿 |
+| `SRC-EXT-056` | Google「Site Reliability Engineering」12章 Effective Troubleshooting | Google | https://sre.google/sre-book/effective-troubleshooting/ | 2026-09-08 | 公開されている社内標準 |
+| `SRC-EXT-057` | Google「Site Reliability Engineering」6章 Monitoring Distributed Systems | Google | https://sre.google/sre-book/monitoring-distributed-systems/ | 2026-09-08 | 公開されている社内標準 |
+| `SRC-EXT-058` | Google「Site Reliability Engineering」15章 Postmortem Culture: Learning from Failure | Google | https://sre.google/sre-book/postmortem-culture/ | 2026-09-08 | 公開されている社内標準 |
+| `SRC-EXT-059` | Andreas Zeller「Isolating Failure-Inducing Input」（Zeller・Hildebrandt, IEEE Transactions on Software Engineering 28(2)、2002年2月 の原稿） | Universität Passau（著者の原稿） | https://homes.cs.washington.edu/~mernst/teaching/6.893/readings/zeller-tse.pdf | 2026-09-08 | 査読つき論文の原稿 |
+| `SRC-EXT-060` | git-bisect の公式マニュアル | Git プロジェクト | https://git-scm.com/docs/git-bisect | 2026-09-08 | 道具の公式文書 |
+| `SRC-EXT-061` | Richard I. Cook「How Complex Systems Fail」（1998年、1999年、2000年） | Cognitive Technologies Laboratory, University of Chicago | https://how.complexsystems.fail/ | 2026-09-08 | 著者の公開文書 |
+| `SRC-EXT-062` | Hochschild ほか「Cores that don't count」（HotOS '21、2021-05-31 から 06-02、DOI 10.1145/3458336.3465297） | Google（著者の所属。SIGOPS が原稿を公開） | https://sigops.org/s/conferences/hotos/2021/papers/hotos21-s01-hochschild.pdf | 2026-09-08 | 査読つき国際会議の論文 |
+| `SRC-EXT-063` | Altman・Bland「Absence of evidence is not evidence of absence」（BMJ 1995;311:485、Statistics Notes） | BMJ | https://www.acsu.buffalo.edu/~wdmccall/os512d/EvidAbs.html | 2026-09-08 | 査読つき雑誌の記事 |
+| `SRC-EXT-064` | SEI CERT Oracle Coding Standard for Java, ERR00-J「Do not suppress or ignore checked exceptions」 | Software Engineering Institute, Carnegie Mellon University | https://cmu-sei.github.io/secure-coding-standards/sei-cert-oracle-coding-standard-for-java/rules/exceptional-behavior-err/err00-j | 2026-09-08 | 公的研究機関の規約 |
+| `SRC-EXT-065` | CWE-778「Insufficient Logging」（CWE 4.20） | MITRE | https://cwe.mitre.org/data/definitions/778.html | 2026-09-08 | 標準化された分類の本体 |
+| `SRC-EXT-066` | OWASP Logging Cheat Sheet | OWASP Foundation | https://cheatsheetseries.owasp.org/cheatsheets/Logging_Cheat_Sheet.html | 2026-09-08 | 業界団体の公開指針 |
+
+**一次資料は7件である。** 査読つき論文2件（`SRC-EXT-059`、`SRC-EXT-062`）、査読つき雑誌の記事1件（`SRC-EXT-063`）、資格制度の本体文書1件（`SRC-EXT-054`）、標準化された分類1件（`SRC-EXT-065`）、公的研究機関の規約1件（`SRC-EXT-064`）、道具の公式文書1件（`SRC-EXT-060`）である。
+
+**`SRC-EXT-056` から `SRC-EXT-058` は、同じ「Site Reliability Engineering」の3章である。** 発行者は1つであり、独立した3件として数えない。
+
+**`SRC-EXT-063` は本文が走査画像である。** PubMed Central の PDF から本文を取り出せなかったため、University at Buffalo が公開する本文の再掲を読んだ。**原本そのものではない。**
+
+**`SRC-EXT-053` は IEEE Computer 1987年4月号の記事の原稿である。** 読んだのは UNC の技術報告 TR86-020（1986年9月）であり、雑誌に載った版とは字句が違う可能性がある。
+
+**`SRC-EXT-059` の題は「Isolating Failure-Inducing Input」である。** IEEE Transactions on Software Engineering 28(2)（2002）に載った Zeller・Hildebrandt「Simplifying and Isolating Failure-Inducing Input」の原稿にあたる。**雑誌に載った版そのものは読んでいない。**
+
+**`SRC-EXT-066` は業界団体の指針であり、規格ではない。** 章「06 問題の見つけ方」は、記録する項目の一覧をこの資料の記述で代えている。
+
 ### 読もうとして読めなかったもの
 
 | 資料 | 状態 |
@@ -208,6 +239,12 @@ PDFは `references/` に置く。**購入者ウォーターマーク（メール
 | ISTQB「Certified Tester Test Automation Strategy Syllabus v1.0」 | 自動化の投資回収を扱う文書である。**開いていない。** 章「05 テスト」は、この文書を根拠にした主張を採っていない |
 | James Bach「Good Enough Quality: Beyond the Buzzword」（1997年） | `SRC-TEST-002` 7-3 が引いている論文である。**原典を開いていない。** 同書の記述を根拠にしている |
 | Kent Beck「Test Desiderata」 | テストの望ましい12の性質を挙げた文書である。Medium が HTTP 403 を返し、著者のリポジトリからも取得できなかった。**主張に採っていない** |
+| ISO/IEC/IEEE 29148:2018「Requirements engineering」 | 要求工学のライフサイクル過程を定めた規格である。`iso.org` と `standards.iteh.ai` のいずれも本文を返さなかった。**章「06 問題の見つけ方」は `SRC-EXT-054` の記述で代えている。** 出典IDは振っていない |
+| Curtis・Krasner・Iscoe「A field study of the software design process for large systems」（CACM 31(11)、1988） | 17件の大規模開発を聞き取った実地調査である。`dl.acm.org` の該当PDFが 2026-09-08 の時点で HTTP 403 を返した。**本体を読めていない。** 出典IDは振っていない |
+| Card「The problem with '5 whys'」（BMJ Qual Saf 2017;26(8):671-677、DOI 10.1136/bmjqs-2016-005849） | なぜなぜ分析への批判である。PubMed が要旨を持たず、`pslhub.org` が HTTP 403 を返した。**書誌情報だけを確認し、主張に採っていない。** 出典IDは振っていない |
+| Leveson「A New Accident Model for Engineering Safer Systems」（Safety Science 42(4)、2004、p.237-270） | 直線的な因果モデルへの批判である。`sunnyday.mit.edu` への接続が 2026-09-08 に拒否された（`ECONNREFUSED`）。**同じ向きの主張は `SRC-EXT-061` で代えている。** 出典IDは振っていない |
+| Wason「On the failure to eliminate hypotheses in a conceptual task」（Quarterly Journal of Experimental Psychology 12(3)、1960、p.129-140） | 確証バイアスの原典である。出版社の頁が本文を返さなかった。**章「06 問題の見つけ方」は認知バイアスの名前を使っていない。** 出典IDは振っていない |
+| David Agans『Debugging』、Andreas Zeller『Why Programs Fail』 | 外部AI（Antigravity）が根拠に挙げた書籍である。**手元に無く、抽出テキストも無い。** 章「06 問題の見つけ方」は、この2冊を根拠にした主張を採っていない。出典IDは振っていない |
 
 ### まだ調べていない公開情報
 

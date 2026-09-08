@@ -34,6 +34,7 @@ nav = [
       "03-architecture.md",
       "04-review.md",
       "05-test.md",
+      "06-problem-finding.md",
   ] },
 ]
 
