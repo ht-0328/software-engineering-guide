@@ -77,7 +77,7 @@ PDFは `references/` に置く。**購入者ウォーターマーク（メール
 | 05 テスト | `SRC-TEST-001`、`SRC-TEST-002` |
 | 06 問題の見つけ方 | `SRC-THINK-001`、`SRC-ARCH-001`、`SRC-TEST-001`、`SRC-CODE-002` |
 | 07 仕事の進め方 | `SRC-REVIEW-001`、`SRC-ARCH-001`、`SRC-ARCH-002`、`SRC-THINK-001`、`SRC-TEST-001`、`SRC-DESIGN-001` |
-| 08 画面とインターフェースの設計 | `SRC-UI-001`、`SRC-UI-002`、`SRC-ARCH-003` |
+| 08 画面とインターフェースの設計 | `SRC-UI-001`、`SRC-UI-002`、`SRC-DESIGN-001` |
 
 `SRC-CLOUD-001`、`SRC-CLOUD-002`、`SRC-AI-001` から `SRC-AI-003` は、上の章の主たる根拠にはしない。**特定の技術に依存する内容であり、この手引きが扱う「考え方」とは寿命が違う。** 章を立てる場合は分けて置く。
 
@@ -258,6 +258,40 @@ PDFは `references/` に置く。**購入者ウォーターマーク（メール
 
 **`SRC-EXT-082` から `SRC-EXT-084` は、いずれも同じ発行者（IPA）である。** 独立した3件として数えない。
 
+**章「08 画面とインターフェースの設計」を書くために調べたものを続けて採番した。** `SRC-EXT-085` から `SRC-EXT-103` である。
+
+| ID | 資料 | 発行者 | URL | 確認日 | 種別 |
+|---|---|---|---|---|---|
+| `SRC-EXT-085` | Smith ほか「Designing the Star User Interface」（BYTE 1982年4月号 p.242-282） | Xerox | https://guidebookgallery.org/articles/designingthestaruserinterface | 2026-09-09 | 設計者本人による解説（写し） |
+| `SRC-EXT-086` | Richard Pawson『Naked Objects』（博士論文、2004年） | Trinity College Dublin | https://causeway.apache.org/docs/latest/_attachments/Pawson-Naked-Objects-thesis.pdf | 2026-09-09 | 学位論文 |
+| `SRC-EXT-087` | Carolyn M. J. Selby『An Investigation of Object-oriented Interfaces for Human Computer Interaction』（博士論文、1990年8月） | University College London | https://discovery.ucl.ac.uk/id/eprint/10107640/1/An_investigation_of_object-ori.pdf | 2026-09-09 | 学位論文 |
+| `SRC-EXT-088` | Trygve Reenskaug「MODELS - VIEWS - CONTROLLERS」（1979-12-10） | Trygve Reenskaug（個人） | https://folk.universitetetioslo.no/trygver/1979/mvc-2/1979-12-MVC.pdf | 2026-09-09 | 原メモ |
+| `SRC-EXT-089` | ISO 9241-110:2020「Interaction principles」（第2版、2020-05） | ISO/TC 159/SC 4 | https://cdn.standards.iteh.ai/samples/75258/83c8cf072187487686645aad04eff40e/ISO-9241-110-2020.pdf | 2026-09-09 | 国際規格（プレビュー部分のみ） |
+| `SRC-EXT-090` | WCAG 2.2（W3C Recommendation、2024-12-12） | W3C | https://www.w3.org/TR/WCAG22/ | 2026-09-09 | 標準化団体の勧告 |
+| `SRC-EXT-091` | GOV.UK Service Standard 第2項「Solve a whole problem for users」（2026-01-29 更新） | Central Digital and Data Office（英国政府） | https://www.gov.uk/service-manual/service-standard/point-2-solve-a-whole-problem | 2026-09-09 | 公的機関の公開標準 |
+| `SRC-EXT-092` | Government Design Principles（2012-04-03 公開、2025-04-02 更新） | Government Digital Service（英国政府） | https://www.gov.uk/guidance/government-design-principles | 2026-09-09 | 公的機関の公開標準 |
+| `SRC-EXT-093` | GOV.UK Design System「Question pages」 | Government Digital Service（英国政府） | https://design-system.service.gov.uk/patterns/question-pages/ | 2026-09-09 | 公的機関の公開標準 |
+| `SRC-EXT-094` | Tim Paul「Designing forms: one thing per page」（2015-07-03） | Government Digital Service（英国政府） | https://designnotes.blog.gov.uk/2015/07/03/one-thing-per-page/ | 2026-09-09 | 公的機関の公開記事 |
+| `SRC-EXT-095` | GOV.UK Service Manual「Designing services for government users」（2018-01-11 更新） | Government Digital Service（英国政府） | https://www.gov.uk/service-manual/design/services-for-government-users | 2026-09-09 | 公的機関の公開標準 |
+| `SRC-EXT-096` | Raluca Budiu「Wizards: Definition and Design Recommendations」（2017-06-25） | Nielsen Norman Group | https://www.nngroup.com/articles/wizards/ | 2026-09-09 | 実務者向けの解説 |
+| `SRC-EXT-097` | Android Developers「Canonical layouts」（版数の表示なし） | Google | https://developer.android.com/develop/adaptive-apps/guides/canonical-layouts | 2026-09-09 | ベンダの公開標準 |
+| `SRC-EXT-098` | Martin Fowler「Presentation Model」（2004-07-19） | Martin Fowler（個人） | https://martinfowler.com/eaaDev/PresentationModel.html | 2026-09-09 | 個人の公開文書 |
+| `SRC-EXT-099` | Martin Fowler「GUI Architectures」（2006-07-18） | Martin Fowler（個人） | https://martinfowler.com/eaaDev/uiArchs.html | 2026-09-09 | 個人の公開文書 |
+| `SRC-EXT-100` | 「What is OOUX」（版数の表示なし） | Sophia Prater／Rewired | https://ooux.com/what-is-ooux | 2026-09-09 | 提唱者本人の解説 |
+| `SRC-EXT-101` | Joshua Porter「Testing the Three-Click Rule」（2003-04-16） | User Interface Engineering（現 Center Centre） | https://articles.centercentre.com/three_click_rule/ | 2026-09-09 | 実務の調査会社による分析 |
+| `SRC-EXT-102` | Larson・Czerwinski「Web page design: implications of memory, structure and scent for information retrieval」（CHI '98） | ACM（要旨は Microsoft Research が公開） | https://www.microsoft.com/en-us/research/publication/web-page-design-implications-memory-structure-scent-information-retrieval/ | 2026-09-09 | 査読つき論文（要旨のみ） |
+| `SRC-EXT-103` | IPA『先進的な設計・検証技術の適用事例報告書2016年度版』事例64 | 独立行政法人情報処理推進機構 | https://www.ipa.go.jp/archive/files/000057616.pdf | 2026-09-09 | 公的機関による事例報告 |
+
+**一次資料は5件である。** 学位論文2件（`SRC-EXT-086`、`SRC-EXT-087`）、標準化団体の勧告1件（`SRC-EXT-090`）、国際規格1件（`SRC-EXT-089`、プレビュー部分のみ）、査読つき論文1件（`SRC-EXT-102`、要旨のみ）である。
+
+**`SRC-EXT-091` から `SRC-EXT-095` は、いずれも英国政府（GDS／CDDO）が発行元である。** 独立した5件として数えない。**同じ発行元の中に、原則（`SRC-EXT-093`）と例外（`SRC-EXT-095`）の両方がある。**
+
+**`SRC-EXT-098` と `SRC-EXT-099` は、どちらも Martin Fowler である。** 独立した2件として数えない。
+
+**`SRC-EXT-102` は要旨しか読めていない。** 実験条件と被験者の人数を確認していない。章「08 画面とインターフェースの設計」の `UI-20` は、この事実を明記したうえで段数の数値を書いていない。
+
+**`SRC-EXT-089` は無料のプレビュー部分しか読めていない。** 本体の要求事項は読めていない。
+
 ### 読もうとして読めなかったもの
 
 | 資料 | 状態 |
@@ -286,6 +320,12 @@ PDFは `references/` に置く。**購入者ウォーターマーク（メール
 | Barry Boehm『Software Engineering Economics』（1981） | 「不確実性の錐」の原典である。**書籍であり手元に無い。** 章「07 仕事の進め方」はこの語を使っていない。出典IDは振っていない |
 | Standish Group「CHAOS Report」 | 案件の成否の統計である。**有料であり本文を読めない。** 章「07 仕事の進め方」は数値を使っていない。出典IDは振っていない |
 | Donald Reinertsen『The Principles of Product Development Flow』、Daniel Vacanti『Actionable Agile Metrics for Predictability』、Eliyahu Goldratt『Critical Chain』、Mike Cohn の相対見積りの著作 | 外部AI（Antigravity）が根拠に挙げた書籍である。**いずれも手元に無く、抽出テキストも無い。** 章「07 仕事の進め方」は、この4冊を根拠にした主張を採っていない。出典IDは振っていない |
+| Larry Constantine「The Emperor Has No Clothes: Naked Objects Meet the Interface」（Interactions 9(2) p.69-71、2002年） | 対象を並べる形への正面からの批判である。ACM の有料範囲にあり、`foruse.com` の原記事は消え、写しは 2026-09-09 に HTTP 403 を返した。**章「08 画面とインターフェースの設計」は `SRC-EXT-086` が引用する範囲だけを使っている。** 出典IDは振っていない |
+| IBM『Object-Oriented Interface Design - IBM Common User Access Guidelines』（1989年／1991年） | 対象を並べる形を体系化した最初期の標準である。**本文を公開している URL を見つけられなかった。** `SRC-EXT-086` が引く範囲だけを使っている。出典IDは振っていない |
+| Apple Human Interface Guidelines「Split views」 | 一覧と詳細を並べる形の公式な指針である。`developer.apple.com` の本文が JavaScript で描画され、2026-09-09 の時点で取得できなかった。**章「08 画面とインターフェースの設計」は `SRC-EXT-097`（Android）で代えている。** 出典IDは振っていない |
+| Larson・Czerwinski（CHI '98）の本文 | `SRC-EXT-102` の要旨は読めたが、本文（実験条件、人数、所要時間）を無料で読める場所を見つけられなかった。**階層の深さの数値の目安を、一次資料から取れていない** |
+| Dave Collins『Designing Object-Oriented User Interfaces』（1995年）、Theo Mandel『The Elements of User Interface Design』（1997年）、Roberts ほか『Designing for the User with OVID』（1998年） | `SRC-UI-001` 6-5 が紹介する3冊である。**いずれも手元に無く、原典を開いていない。** 章「08 画面とインターフェースの設計」は、この3冊を根拠にした主張を採っていない。出典IDは振っていない |
+| Alan Cooper ほか『About Face』 | 外部AI（Antigravity）が `SRC-UI-001` p.336 の記述として引いたが、**同ページに Cooper の説明は無い**（司会が 2026-09-09 に確認）。原典も手元に無い。章「08 画面とインターフェースの設計」は、この書籍を根拠にした主張を採っていない。出典IDは振っていない |
 
 ### まだ調べていない公開情報
 

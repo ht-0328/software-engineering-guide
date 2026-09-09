@@ -9,7 +9,7 @@
 
 [project]
 site_name = "システム開発の進め方の手引き"
-site_description = "コードレビュー、テスト、設計、問題の見つけ方を、出典つきで整理した手引き"
+site_description = "コードレビュー、テスト、設計、画面、問題の見つけ方を、出典つきで整理した手引き"
 site_url = "https://ht-0328.github.io/software-engineering-guide/"
 
 repo_url = "https://github.com/ht-0328/software-engineering-guide"
@@ -36,6 +36,7 @@ nav = [
       "05-test.md",
       "06-problem-finding.md",
       "07-workflow.md",
+      "08-ui-design.md",
   ] },
 ]
 

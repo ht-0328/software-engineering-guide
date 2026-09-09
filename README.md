@@ -2,10 +2,10 @@
 
 | 項目 | 内容 |
 |---|---|
-| これは何か | コードレビュー、テスト、設計、問題の見つけ方を、出典つきで整理するリポジトリ |
+| これは何か | コードレビュー、テスト、設計、画面、問題の見つけ方を、出典つきで整理するリポジトリ |
 | 本文 | [docs/index.md](docs/index.md) |
 | Webで読む | [公開サイト](https://ht-0328.github.io/software-engineering-guide/)（検索・目次つき） |
-| 版 | 0.11.0（[変更履歴](CHANGELOG.md)） |
+| 版 | 1.0.0（[変更履歴](CHANGELOG.md)） |
 | 作成者 | Claude（Opus 5） |
 | 機密区分 | 公開可 |
 | 想定読者 | システム開発でコードを書き、レビューし、テストし、設計する人 |
@@ -15,13 +15,13 @@
 
 ## 3行で
 
-1. **開発の現場で繰り返し必要になる判断を、根拠つきの観点に変える。** 扱う範囲は [docs/index.md](docs/index.md) の章の一覧にある。
+1. **開発の現場で繰り返し必要になる判断を、根拠つきの観点に変える。** 扱う範囲は [docs/index.md](docs/index.md) の章の一覧にある8章である。
 2. **根拠は手元の書籍22冊と、公開されている規格や標準である。** 主張には出典IDと該当箇所を添える。
 3. **文書の書き方は姉妹リポジトリの標準に従う。** 規則を2か所に持たない。
 
 ## いまどこまで進んでいるか
 
-**0.11.0 の時点で本文があるのは7章である。** 残りの1章は予定である。
+**1.0.0 で8章すべてがそろった。** 予定していた章に本文が入り、この手引きは最初の完成版になった。
 
 | できているもの | 場所 |
 |---|---|
@@ -32,8 +32,9 @@
 | 本文 05 テスト（観点28件） | [docs/05-test.md](docs/05-test.md) |
 | 本文 06 問題の見つけ方（観点23件） | [docs/06-problem-finding.md](docs/06-problem-finding.md) |
 | 本文 07 仕事の進め方（観点35件） | [docs/07-workflow.md](docs/07-workflow.md) |
+| 本文 08 画面とインターフェースの設計（観点28件） | [docs/08-ui-design.md](docs/08-ui-design.md) |
 | 出典カタログ（書籍22冊、出典IDつき） | [research/sources.md](research/sources.md) |
-| 章の予定と書式 | [docs/index.md](docs/index.md) |
+| 章の一覧と書式 | [docs/index.md](docs/index.md) |
 | 構成と規則の決定記録 | [docs/adr/ADR-001-repository-structure.md](docs/adr/ADR-001-repository-structure.md) |
 | 文書の検査 | [tools/doc_lint.py](tools/doc_lint.py) |
 | PDFからの本文抽出 | [tools/extract_pdf.py](tools/extract_pdf.py) |
@@ -139,8 +140,8 @@ docker run --rm --user "$(id -u):$(id -g)" -v "$PWD:/w" -w /w guide-tools python
 **期待される出力**（末尾の3行）
 
 ```text
-下ごしらえしたページ: 8
-生成したページ: 8
+下ごしらえしたページ: 9
+生成したページ: 9
 出力先: /w/site
 ```
 
