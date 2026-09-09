@@ -75,9 +75,9 @@ PDFは `references/` に置く。**購入者ウォーターマーク（メール
 | 03 アーキテクチャ | `SRC-ARCH-001`、`SRC-ARCH-002`、`SRC-ARCH-003` |
 | 04 コードレビュー | `SRC-REVIEW-001`、`SRC-CODE-001`、`SRC-CODE-002` |
 | 05 テスト | `SRC-TEST-001`、`SRC-TEST-002` |
-| 06 問題の見つけ方 | `SRC-THINK-001`、`SRC-ARCH-001` |
-| 07 仕事の進め方 | `SRC-THINK-001`、`SRC-REVIEW-001`、`SRC-ARCH-001` |
-| 08 画面とインターフェースの設計 | `SRC-UI-001`、`SRC-UI-002`、`SRC-ARCH-003` |
+| 06 問題の見つけ方 | `SRC-THINK-001`、`SRC-ARCH-001`、`SRC-TEST-001`、`SRC-CODE-002` |
+| 07 仕事の進め方 | `SRC-REVIEW-001`、`SRC-ARCH-001`、`SRC-ARCH-002`、`SRC-THINK-001`、`SRC-TEST-001`、`SRC-DESIGN-001` |
+| 08 画面とインターフェースの設計 | `SRC-UI-001`、`SRC-UI-002`、`SRC-DESIGN-001` |
 
 `SRC-CLOUD-001`、`SRC-CLOUD-002`、`SRC-AI-001` から `SRC-AI-003` は、上の章の主たる根拠にはしない。**特定の技術に依存する内容であり、この手引きが扱う「考え方」とは寿命が違う。** 章を立てる場合は分けて置く。
 
@@ -144,6 +144,154 @@ PDFは `references/` に置く。**購入者ウォーターマーク（メール
 
 **`SRC-EXT-024` は版を確認できていない。** 公式サイト `https://spec.graphql.org/October2021/` が 2026-09-08 の時点で HTTP 403 を返したため、GitHub 上の原稿を読んだ。
 
+**章「04 コードレビュー」を書くために調べたものを続けて採番した。** `SRC-EXT-031` から `SRC-EXT-041` である。
+
+| ID | 資料 | 発行者 | URL | 確認日 | 種別 |
+|---|---|---|---|---|---|
+| `SRC-EXT-031` | Google Engineering Practices「Navigating a CL in Review」 | Google | https://google.github.io/eng-practices/review/reviewer/navigate.html | 2026-09-08 | 公開されている社内標準 |
+| `SRC-EXT-032` | Google Engineering Practices「Small CLs」 | Google | https://google.github.io/eng-practices/review/developer/small-cls.html | 2026-09-08 | 公開されている社内標準 |
+| `SRC-EXT-033` | Google Engineering Practices「Handling Pushback in Code Reviews」 | Google | https://google.github.io/eng-practices/review/reviewer/pushback.html | 2026-09-08 | 公開されている社内標準 |
+| `SRC-EXT-034` | Google Engineering Practices「Emergencies」 | Google | https://google.github.io/eng-practices/review/emergencies.html | 2026-09-08 | 公開されている社内標準 |
+| `SRC-EXT-035` | Conventional Comments（Paul Slaughter、CC BY 3.0） | conventionalcomments.org | https://conventionalcomments.org/ | 2026-09-08 | 規約の本体 |
+| `SRC-EXT-036` | GitLab「Code Review Guidelines」 | GitLab | https://docs.gitlab.com/development/code_review/ | 2026-09-08 | 公開されている社内標準 |
+| `SRC-EXT-037` | Sadowski ほか「Modern Code Review: A Case Study at Google」（ICSE-SEIP 2018、p.181-190） | ACM（著者が写しを公開） | https://sback.it/publications/icse2018seip.pdf | 2026-09-08 | 査読つき論文の本体 |
+| `SRC-EXT-038` | Bacchelli・Bird「Expectations, Outcomes, and Challenges of Modern Code Review」（ICSE 2013、p.712-721） | Microsoft Research | https://www.microsoft.com/en-us/research/wp-content/uploads/2016/02/ICSE202013-codereview.pdf | 2026-09-08 | 査読つき論文の本体 |
+| `SRC-EXT-039` | Bosu・Greiler・Bird「Characteristics of Useful Code Reviews: An Empirical Study at Microsoft」（MSR 2015） | 著者が写しを公開 | https://www.amiangshu.com/papers/CodeReview-MSR-2015.pdf | 2026-09-08 | 査読つき論文の本体 |
+| `SRC-EXT-040` | SmartBear「Best Kept Secrets of Peer Code Review」（Cisco MeetingPlace の事例研究、2006年） | SmartBear Software | https://static0.smartbear.co/smartbear/media/pdfs/best-kept-secrets-of-peer-code-review_redirected.pdf | 2026-09-08 | 測定した当事者の報告 |
+| `SRC-EXT-041` | RFC 2119「Key words for use in RFCs to Indicate Requirement Levels」（BCP 14、1997年3月、S. Bradner） | IETF | https://datatracker.ietf.org/doc/html/rfc2119 | 2026-09-08 | 標準化団体の文書の本体 |
+
+**一次資料は5件である。** 査読つき論文3件（`SRC-EXT-037`、`SRC-EXT-038`、`SRC-EXT-039`）、規約の本体（`SRC-EXT-035`）、標準化団体の文書（`SRC-EXT-041`）である。**Google の4件と GitLab の1件は公開された社内標準であり、規格ではない。**
+
+**`SRC-EXT-040` は測定の当事者による報告だが、発行者は利害関係を持つ。** SmartBear はレビューの道具を販売しており、この文書は自社の道具で集めた指標を分析したものである。**対象は2006年5月までの2500件であり、1社1部門の事例研究である。**
+
+**`SRC-EXT-031` から `SRC-EXT-034` は `SRC-EXT-006` と同じサイトにある。** `SRC-EXT-006` は `standard.html`、`looking-for.html`、`comments.html`、`speed.html` の4ページを指す。**重複しないよう、この4ページは `SRC-EXT-006` のままとした。**
+
+**`SRC-EXT-041` はコードレビューのために書かれた文書ではない。** 仕様書の記述水準を示すためのものであり、同文書の第6節は、これらの語を控えめに使うよう求めている。章「04 コードレビュー」は、この点を観点 `RV-22` で扱う。
+
+**章「05 テスト」を書くために調べたものを続けて採番した。** `SRC-EXT-042` から `SRC-EXT-052` である。
+
+| ID | 資料 | 発行者 | URL | 確認日 | 種別 |
+|---|---|---|---|---|---|
+| `SRC-EXT-042` | ISTQB Certified Tester Foundation Level Syllabus v4.0.1（2024-09-15 発行。v4.0 は 2023-04-21） | International Software Testing Qualifications Board | https://istqb.org/wp-content/uploads/2024/11/ISTQB_CTFL_Syllabus_v4.0.1.pdf | 2026-09-08 | 資格制度の本体文書 |
+| `SRC-EXT-043` | Martin Fowler「TestPyramid」（2012-05-01） | Martin Fowler（個人） | https://martinfowler.com/bliki/TestPyramid.html | 2026-09-08 | 個人の公開文書 |
+| `SRC-EXT-044` | Ham Vocke「The Practical Test Pyramid」（2018-02-26） | martinfowler.com | https://martinfowler.com/articles/practical-test-pyramid.html | 2026-09-08 | 個人の公開文書 |
+| `SRC-EXT-045` | Mike Wacker「Just Say No to More End-to-End Tests」（2015-04-22） | Google Testing Blog | https://testing.googleblog.com/2015/04/just-say-no-to-more-end-to-end-tests.html | 2026-09-08 | 公開されている社内の見解 |
+| `SRC-EXT-046` | Simon Stewart「Test Sizes」（2010-12-13） | Google Testing Blog | https://testing.googleblog.com/2010/12/test-sizes.html | 2026-09-08 | 公開されている社内標準 |
+| `SRC-EXT-047` | Alex Eagle「Testing on the Toilet: Change-Detector Tests Considered Harmful」（2015-01-27） | Google Testing Blog | https://testing.googleblog.com/2015/01/testing-on-toilet-change-detector-tests.html | 2026-09-08 | 公開されている社内標準 |
+| `SRC-EXT-048` | Andrew Trenk「Testing on the Toilet: Test Behavior, Not Implementation」（2013-08-05） | Google Testing Blog | https://testing.googleblog.com/2013/08/testing-on-toilet-test-behavior-not.html | 2026-09-08 | 公開されている社内標準 |
+| `SRC-EXT-049` | Andrew Trenk「Testing on the Toilet: Writing Descriptive Test Names」（2014-10-16） | Google Testing Blog | https://testing.googleblog.com/2014/10/testing-on-toilet-writing-descriptive.html | 2026-09-08 | 公開されている社内標準 |
+| `SRC-EXT-050` | Kuhn・Wallace・Gallo「Software Fault Interactions and Implications for Software Testing」（IEEE Transactions on Software Engineering 30(6)、2004年6月、p.418-421） | NIST（著者の所属。NIST が原稿を公開） | https://csrc.nist.gov/CSRC/media/Projects/automated-combinatorial-testing-for-software/documents/kuhn-wallace-gallo-tse-preprint.pdf | 2026-09-08 | 査読つき論文の本体 |
+| `SRC-EXT-051` | IPA/SEC「組込みソフトウェア開発における品質向上の勧め［バグ管理手法編］」（SEC BOOKS、2013年） | 独立行政法人情報処理推進機構 | https://www.ipa.go.jp/archive/publish/qv6pgp00000010b6-att/000027629.pdf | 2026-09-08 | 公的機関の刊行物 |
+| `SRC-EXT-052` | 西康晴「テスト観点に基づくテスト開発方法論 VSTeP の概要」（2013-04-03） | 電気通信大学（提唱者本人が公開） | https://qualab.jp/materials/VSTeP.130403.bw.pdf | 2026-09-08 | 提唱者本人の公開資料 |
+
+**一次資料は4件である。** 査読つき論文の本体（`SRC-EXT-050`）、資格制度の本体文書（`SRC-EXT-042`）、公的機関の刊行物（`SRC-EXT-051`）、方法論の提唱者本人の資料（`SRC-EXT-052`）である。**Google の5件と個人の2件は、規格ではない。**
+
+**`SRC-EXT-045` から `SRC-EXT-049` は、同じ Google Testing Blog の5件である。** 発行者は1つであり、独立した5件として数えない。
+
+**`SRC-EXT-050` は過去の4研究をまとめている。** 医療機器、Webブラウザ、HTTPサーバ、NASA の分散システムの測定値を1本の論文が並べたものである。**独立した4件として数えない。**
+
+**`SRC-EXT-042` は資格制度のシラバスであり、規格ではない。** ISO/IEC/IEEE 29119 を読めていないため、章「05 テスト」の技法の定義はこの文書の記述で代えている。
+
+**章「06 問題の見つけ方」を書くために調べたものを続けて採番した。** `SRC-EXT-053` から `SRC-EXT-066` である。
+
+| ID | 資料 | 発行者 | URL | 確認日 | 種別 |
+|---|---|---|---|---|---|
+| `SRC-EXT-053` | Frederick P. Brooks, Jr.「No Silver Bullet: Essence and Accidents of Software Engineering」（UNC TR86-020、1986年9月。IEEE Computer 1987年4月号の原稿） | University of North Carolina at Chapel Hill | https://www.cs.unc.edu/techreports/86-020.pdf | 2026-09-08 | 著者の技術報告 |
+| `SRC-EXT-054` | IREB CPRE Foundation Level Syllabus v3.2.0（2024-02-26 発行。Stan Bühne、Martin Glinz） | International Requirements Engineering Board | https://isqi.org/media/7f/9a/3e/1744288053/cpre_foundationlevel_syllabus_EN_v.3.2.pdf | 2026-09-08 | 資格制度の本体文書 |
+| `SRC-EXT-055` | Edsger W. Dijkstra「The Humble Programmer」（EWD340、1972年 ACM チューリング賞講演） | University of Texas at Austin（著者の草稿を公開） | https://www.cs.utexas.edu/~EWD/transcriptions/EWD03xx/EWD340.html | 2026-09-08 | 著者本人の草稿 |
+| `SRC-EXT-056` | Google「Site Reliability Engineering」12章 Effective Troubleshooting | Google | https://sre.google/sre-book/effective-troubleshooting/ | 2026-09-08 | 公開されている社内標準 |
+| `SRC-EXT-057` | Google「Site Reliability Engineering」6章 Monitoring Distributed Systems | Google | https://sre.google/sre-book/monitoring-distributed-systems/ | 2026-09-08 | 公開されている社内標準 |
+| `SRC-EXT-058` | Google「Site Reliability Engineering」15章 Postmortem Culture: Learning from Failure | Google | https://sre.google/sre-book/postmortem-culture/ | 2026-09-08 | 公開されている社内標準 |
+| `SRC-EXT-059` | Andreas Zeller「Isolating Failure-Inducing Input」（Zeller・Hildebrandt, IEEE Transactions on Software Engineering 28(2)、2002年2月 の原稿） | Universität Passau（著者の原稿） | https://homes.cs.washington.edu/~mernst/teaching/6.893/readings/zeller-tse.pdf | 2026-09-08 | 査読つき論文の原稿 |
+| `SRC-EXT-060` | git-bisect の公式マニュアル | Git プロジェクト | https://git-scm.com/docs/git-bisect | 2026-09-08 | 道具の公式文書 |
+| `SRC-EXT-061` | Richard I. Cook「How Complex Systems Fail」（1998年、1999年、2000年） | Cognitive Technologies Laboratory, University of Chicago | https://how.complexsystems.fail/ | 2026-09-08 | 著者の公開文書 |
+| `SRC-EXT-062` | Hochschild ほか「Cores that don't count」（HotOS '21、2021-05-31 から 06-02、DOI 10.1145/3458336.3465297） | Google（著者の所属。SIGOPS が原稿を公開） | https://sigops.org/s/conferences/hotos/2021/papers/hotos21-s01-hochschild.pdf | 2026-09-08 | 査読つき国際会議の論文 |
+| `SRC-EXT-063` | Altman・Bland「Absence of evidence is not evidence of absence」（BMJ 1995;311:485、Statistics Notes） | BMJ | https://www.acsu.buffalo.edu/~wdmccall/os512d/EvidAbs.html | 2026-09-08 | 査読つき雑誌の記事 |
+| `SRC-EXT-064` | SEI CERT Oracle Coding Standard for Java, ERR00-J「Do not suppress or ignore checked exceptions」 | Software Engineering Institute, Carnegie Mellon University | https://cmu-sei.github.io/secure-coding-standards/sei-cert-oracle-coding-standard-for-java/rules/exceptional-behavior-err/err00-j | 2026-09-08 | 公的研究機関の規約 |
+| `SRC-EXT-065` | CWE-778「Insufficient Logging」（CWE 4.20） | MITRE | https://cwe.mitre.org/data/definitions/778.html | 2026-09-08 | 標準化された分類の本体 |
+| `SRC-EXT-066` | OWASP Logging Cheat Sheet | OWASP Foundation | https://cheatsheetseries.owasp.org/cheatsheets/Logging_Cheat_Sheet.html | 2026-09-08 | 業界団体の公開指針 |
+
+**一次資料は7件である。** 査読つき論文2件（`SRC-EXT-059`、`SRC-EXT-062`）、査読つき雑誌の記事1件（`SRC-EXT-063`）、資格制度の本体文書1件（`SRC-EXT-054`）、標準化された分類1件（`SRC-EXT-065`）、公的研究機関の規約1件（`SRC-EXT-064`）、道具の公式文書1件（`SRC-EXT-060`）である。
+
+**`SRC-EXT-056` から `SRC-EXT-058` は、同じ「Site Reliability Engineering」の3章である。** 発行者は1つであり、独立した3件として数えない。
+
+**`SRC-EXT-063` は本文が走査画像である。** PubMed Central の PDF から本文を取り出せなかったため、University at Buffalo が公開する本文の再掲を読んだ。**原本そのものではない。**
+
+**`SRC-EXT-053` は IEEE Computer 1987年4月号の記事の原稿である。** 読んだのは UNC の技術報告 TR86-020（1986年9月）であり、雑誌に載った版とは字句が違う可能性がある。
+
+**`SRC-EXT-059` の題は「Isolating Failure-Inducing Input」である。** IEEE Transactions on Software Engineering 28(2)（2002）に載った Zeller・Hildebrandt「Simplifying and Isolating Failure-Inducing Input」の原稿にあたる。**雑誌に載った版そのものは読んでいない。**
+
+**`SRC-EXT-066` は業界団体の指針であり、規格ではない。** 章「06 問題の見つけ方」は、記録する項目の一覧をこの資料の記述で代えている。
+
+**章「07 仕事の進め方」を書くために調べたものを続けて採番した。** `SRC-EXT-067` から `SRC-EXT-084` である。
+
+| ID | 資料 | 発行者 | URL | 確認日 | 種別 |
+|---|---|---|---|---|---|
+| `SRC-EXT-067` | Magne Jørgensen「Practical Guidelines for Expert-Judgment-Based Software Effort Estimation」（IEEE Software 22(3)、2005年5-6月号） | IEEE Computer Society（Simula Research Laboratory が原稿を公開） | https://web-backend.simula.no/sites/default/files/publications/Jorgensen.2005.3.pdf | 2026-09-09 | 査読つき雑誌の記事 |
+| `SRC-EXT-068` | Bent Flyvbjerg「From Nobel Prize to Project Management: Getting Risks Right」（Project Management Journal 37(3)、2006年8月、p.5-15。arXiv:1302.3642） | Project Management Journal（著者が原稿を公開） | https://arxiv.org/pdf/1302.3642 | 2026-09-09 | 査読つき雑誌の記事の原稿 |
+| `SRC-EXT-069` | The Scrum Guide（2020年11月版。Ken Schwaber、Jeff Sutherland） | Scrum.org / Scrum Alliance | https://scrumguides.org/scrum-guide.html | 2026-09-09 | 枠組みの定義文書 |
+| `SRC-EXT-070` | Bill Wake「INVEST in Good Stories, and SMART Tasks」（2003-08-17 初出） | Bill Wake（個人） | https://xp123.com/invest-in-good-stories-and-smart-tasks/ | 2026-09-09 | 頭字語の提唱者本人の文書 |
+| `SRC-EXT-071` | DORA「Work in small batches」（2025-12-08 更新） | Google Cloud（DORA） | https://dora.dev/capabilities/working-in-small-batches/ | 2026-09-09 | 公開されている社内標準 |
+| `SRC-EXT-072` | NASA Work Breakdown Structure (WBS) Handbook（NASA/SP-2016-3404 Rev.1） | NASA | https://essp.larc.nasa.gov/EVM-3/pdf_files/NASA_WBS_Handbook_20180000844.pdf | 2026-09-09 | 政府機関の手引き |
+| `SRC-EXT-073` | Conventional Commits 1.0.0 | conventionalcommits.org | https://www.conventionalcommits.org/en/v1.0.0/ | 2026-09-09 | 規約の本体 |
+| `SRC-EXT-074` | Keep a Changelog 1.1.0（2019-02-15） | keepachangelog.com（Olivier Lacan） | https://keepachangelog.com/en/1.1.0/ | 2026-09-09 | 規約の本体 |
+| `SRC-EXT-075` | Semantic Versioning 2.0.0 | semver.org（Tom Preston-Werner） | https://semver.org/spec/v2.0.0.html | 2026-09-09 | 規約の本体 |
+| `SRC-EXT-076` | Git「SubmittingPatches」 | Git プロジェクト | https://git-scm.com/docs/SubmittingPatches | 2026-09-09 | 道具の公式文書 |
+| `SRC-EXT-077` | Google Engineering Practices「Writing good CL descriptions」 | Google | https://google.github.io/eng-practices/review/developer/cl-descriptions.html | 2026-09-09 | 公開されている社内標準 |
+| `SRC-EXT-078` | RFC 7282「On Consensus and Humming in the IETF」（2014年6月、Informational、P. Resnick） | IETF | https://www.rfc-editor.org/rfc/rfc7282.html | 2026-09-09 | 標準化団体の文書の本体 |
+| `SRC-EXT-079` | RFC 2418「IETF Working Group Guidelines and Procedures」（BCP 25、1998年9月、S. Bradner 編） | IETF | https://www.rfc-editor.org/rfc/rfc2418.html | 2026-09-09 | 標準化団体の文書の本体 |
+| `SRC-EXT-080` | Manifesto for Agile Software Development「Principles behind the Agile Manifesto」（2001年） | 宣言の署名者17名 | https://agilemanifesto.org/principles.html | 2026-09-09 | 提唱者本人たちの宣言 |
+| `SRC-EXT-081` | Kanban Guide v2025.5（2025-05-01 更新。John Coleman ほか） | kanbanguides.org | https://kanbanguides.org/english/ | 2026-09-09 | 枠組みの定義文書 |
+| `SRC-EXT-082` | IPA/SEC『ITユーザとベンダのための定量的見積りの勧め』（SEC BOOKS） | 独立行政法人情報処理推進機構 | https://www.ipa.go.jp/archive/publish/qv6pgp0000000wvg-att/000005104.pdf | 2026-09-09 | 公的機関の刊行物 |
+| `SRC-EXT-083` | IPA「機能要件の合意形成ガイド」（2010年3月公開） | 独立行政法人情報処理推進機構 | https://www.ipa.go.jp/archive/digital/iot-en-ci/jyouryuu/ent03-a.html | 2026-09-09 | 公的機関の公開指針 |
+| `SRC-EXT-084` | IPA『アジャイル型開発におけるプラクティス活用事例調査 調査報告書～ガイド編～』（2013-03-19） | 独立行政法人情報処理推進機構 | https://www.ipa.go.jp/archive/files/000026849.pdf | 2026-09-09 | 公的機関による事例調査 |
+
+**一次資料は6件である。** 査読つき雑誌の記事2件（`SRC-EXT-067`、`SRC-EXT-068`）、標準化団体の文書2件（`SRC-EXT-078`、`SRC-EXT-079`）、公的機関の刊行物2件（`SRC-EXT-082`、`SRC-EXT-083`）である。**規約3件（`SRC-EXT-073` から `SRC-EXT-075`）と枠組みの定義文書2件（`SRC-EXT-069`、`SRC-EXT-081`）は、規格ではない。**
+
+**`SRC-EXT-069` の本文に「Definition of Ready」と「ストーリーポイント」の語は無い。** 2026-09-09 に全文で確かめた。章「07 仕事の進め方」の `WF-22` は、この事実を根拠に「Definition of Ready」の語を使わない。
+
+**`SRC-EXT-068` の対象は交通基盤の建設であり、ソフトウェア開発ではない。** 同論文は IT システムも同じ傾向を示すとするが、その根拠は同著者の別の書籍である。
+
+**`SRC-EXT-072` は `ntrs.nasa.gov` の該当URLが 2026-09-09 の時点で HTTP 404 を返した。** NASA Langley Research Center が公開する写しを読んだ。
+
+**`SRC-EXT-077` は `SRC-EXT-006` および `SRC-EXT-031` から `SRC-EXT-034` と同じサイトにある。** `SRC-EXT-006` が指す4ページとは重ならないため、新しい番号を振った。**発行者は1つであり、独立した件数として数えない。**
+
+**`SRC-EXT-082` から `SRC-EXT-084` は、いずれも同じ発行者（IPA）である。** 独立した3件として数えない。
+
+**章「08 画面とインターフェースの設計」を書くために調べたものを続けて採番した。** `SRC-EXT-085` から `SRC-EXT-103` である。
+
+| ID | 資料 | 発行者 | URL | 確認日 | 種別 |
+|---|---|---|---|---|---|
+| `SRC-EXT-085` | Smith ほか「Designing the Star User Interface」（BYTE 1982年4月号 p.242-282） | Xerox | https://guidebookgallery.org/articles/designingthestaruserinterface | 2026-09-09 | 設計者本人による解説（写し） |
+| `SRC-EXT-086` | Richard Pawson『Naked Objects』（博士論文、2004年） | Trinity College Dublin | https://causeway.apache.org/docs/latest/_attachments/Pawson-Naked-Objects-thesis.pdf | 2026-09-09 | 学位論文 |
+| `SRC-EXT-087` | Carolyn M. J. Selby『An Investigation of Object-oriented Interfaces for Human Computer Interaction』（博士論文、1990年8月） | University College London | https://discovery.ucl.ac.uk/id/eprint/10107640/1/An_investigation_of_object-ori.pdf | 2026-09-09 | 学位論文 |
+| `SRC-EXT-088` | Trygve Reenskaug「MODELS - VIEWS - CONTROLLERS」（1979-12-10） | Trygve Reenskaug（個人） | https://folk.universitetetioslo.no/trygver/1979/mvc-2/1979-12-MVC.pdf | 2026-09-09 | 原メモ |
+| `SRC-EXT-089` | ISO 9241-110:2020「Interaction principles」（第2版、2020-05） | ISO/TC 159/SC 4 | https://cdn.standards.iteh.ai/samples/75258/83c8cf072187487686645aad04eff40e/ISO-9241-110-2020.pdf | 2026-09-09 | 国際規格（プレビュー部分のみ） |
+| `SRC-EXT-090` | WCAG 2.2（W3C Recommendation、2024-12-12） | W3C | https://www.w3.org/TR/WCAG22/ | 2026-09-09 | 標準化団体の勧告 |
+| `SRC-EXT-091` | GOV.UK Service Standard 第2項「Solve a whole problem for users」（2026-01-29 更新） | Central Digital and Data Office（英国政府） | https://www.gov.uk/service-manual/service-standard/point-2-solve-a-whole-problem | 2026-09-09 | 公的機関の公開標準 |
+| `SRC-EXT-092` | Government Design Principles（2012-04-03 公開、2025-04-02 更新） | Government Digital Service（英国政府） | https://www.gov.uk/guidance/government-design-principles | 2026-09-09 | 公的機関の公開標準 |
+| `SRC-EXT-093` | GOV.UK Design System「Question pages」 | Government Digital Service（英国政府） | https://design-system.service.gov.uk/patterns/question-pages/ | 2026-09-09 | 公的機関の公開標準 |
+| `SRC-EXT-094` | Tim Paul「Designing forms: one thing per page」（2015-07-03） | Government Digital Service（英国政府） | https://designnotes.blog.gov.uk/2015/07/03/one-thing-per-page/ | 2026-09-09 | 公的機関の公開記事 |
+| `SRC-EXT-095` | GOV.UK Service Manual「Designing services for government users」（2018-01-11 更新） | Government Digital Service（英国政府） | https://www.gov.uk/service-manual/design/services-for-government-users | 2026-09-09 | 公的機関の公開標準 |
+| `SRC-EXT-096` | Raluca Budiu「Wizards: Definition and Design Recommendations」（2017-06-25） | Nielsen Norman Group | https://www.nngroup.com/articles/wizards/ | 2026-09-09 | 実務者向けの解説 |
+| `SRC-EXT-097` | Android Developers「Canonical layouts」（版数の表示なし） | Google | https://developer.android.com/develop/adaptive-apps/guides/canonical-layouts | 2026-09-09 | ベンダの公開標準 |
+| `SRC-EXT-098` | Martin Fowler「Presentation Model」（2004-07-19） | Martin Fowler（個人） | https://martinfowler.com/eaaDev/PresentationModel.html | 2026-09-09 | 個人の公開文書 |
+| `SRC-EXT-099` | Martin Fowler「GUI Architectures」（2006-07-18） | Martin Fowler（個人） | https://martinfowler.com/eaaDev/uiArchs.html | 2026-09-09 | 個人の公開文書 |
+| `SRC-EXT-100` | 「What is OOUX」（版数の表示なし） | Sophia Prater／Rewired | https://ooux.com/what-is-ooux | 2026-09-09 | 提唱者本人の解説 |
+| `SRC-EXT-101` | Joshua Porter「Testing the Three-Click Rule」（2003-04-16） | User Interface Engineering（現 Center Centre） | https://articles.centercentre.com/three_click_rule/ | 2026-09-09 | 実務の調査会社による分析 |
+| `SRC-EXT-102` | Larson・Czerwinski「Web page design: implications of memory, structure and scent for information retrieval」（CHI '98） | ACM（要旨は Microsoft Research が公開） | https://www.microsoft.com/en-us/research/publication/web-page-design-implications-memory-structure-scent-information-retrieval/ | 2026-09-09 | 査読つき論文（要旨のみ） |
+| `SRC-EXT-103` | IPA『先進的な設計・検証技術の適用事例報告書2016年度版』事例64 | 独立行政法人情報処理推進機構 | https://www.ipa.go.jp/archive/files/000057616.pdf | 2026-09-09 | 公的機関による事例報告 |
+
+**一次資料は5件である。** 学位論文2件（`SRC-EXT-086`、`SRC-EXT-087`）、標準化団体の勧告1件（`SRC-EXT-090`）、国際規格1件（`SRC-EXT-089`、プレビュー部分のみ）、査読つき論文1件（`SRC-EXT-102`、要旨のみ）である。
+
+**`SRC-EXT-091` から `SRC-EXT-095` は、いずれも英国政府（GDS／CDDO）が発行元である。** 独立した5件として数えない。**同じ発行元の中に、原則（`SRC-EXT-093`）と例外（`SRC-EXT-095`）の両方がある。**
+
+**`SRC-EXT-098` と `SRC-EXT-099` は、どちらも Martin Fowler である。** 独立した2件として数えない。
+
+**`SRC-EXT-102` は要旨しか読めていない。** 実験条件と被験者の人数を確認していない。章「08 画面とインターフェースの設計」の `UI-20` は、この事実を明記したうえで段数の数値を書いていない。
+
+**`SRC-EXT-089` は無料のプレビュー部分しか読めていない。** 本体の要求事項は読めていない。
+
 ### 読もうとして読めなかったもの
 
 | 資料 | 状態 |
@@ -153,11 +301,37 @@ PDFは `references/` に置く。**購入者ウォーターマーク（メール
 | GoF『Design Patterns』（Gamma ほか、1994） | デザインパターンの原典である。電子版・紙版とも手元に無い。**章「02 設計」は `SRC-DESIGN-002` の記述で代えている。** 出典IDは振っていない |
 | ISO/IEC/IEEE 42010（アーキテクチャ記述） | 解説ページ `https://www.iso-architecture.org/42010/` への接続が 2026-09-08 に拒否された（`ECONNREFUSED`）。**規格本体を読めていない。** 出典IDは振っていない |
 | SEI「ATAM: Method for Architecture Evaluation」（CMU/SEI-2000-TR-004） | ATAM そのものの定義文書である。`apps.dtic.mil` の該当PDFが 2026-09-08 の時点で HTTP 403 を返した。**章「03 アーキテクチャ」は `SRC-EXT-027`（CMU/SEI-2003-TN-012）の要約で代えている** |
+| IEEE Std 1028-2008「Software Reviews and Audits」 | レビューの種類と手順を定めた規格である。`standards.ieee.org` の該当ページが 2026-09-08 の時点で HTTP 403 を返し、IEEE Xplore は HTTP 202 を返して本文を返さなかった。**規格本体を読めていない。** 出典IDは振っていない |
+| Chromium「Respectful Code Reviews」（`cr_respect.md`） | `SRC-CODE-002` 17.4.3 が訳出して紹介している指針である。**原典を開いていない。** 章「04 コードレビュー」は同書の訳出を根拠にしている。出典IDは振っていない |
+| ISO/IEC/IEEE 29119-4「Test techniques」（2021年） | テスト技法を定めた規格である。`www.iso.org` の該当ページが 2026-09-08 の時点で HTTP 403 を返した。**規格本体を読めていない。** 章「05 テスト」は `SRC-EXT-042` の記述で代えている |
+| SWEBOK Guide v4.0「Software Testing」章（2024年10月） | IEEE Computer Society のページが申込みの入力を求め、`swebokwiki.org` が HTTP 403 を返した。**本体を読めていない。** 出典IDは振っていない |
+| ISTQB「Certified Tester Test Automation Strategy Syllabus v1.0」 | 自動化の投資回収を扱う文書である。**開いていない。** 章「05 テスト」は、この文書を根拠にした主張を採っていない |
+| James Bach「Good Enough Quality: Beyond the Buzzword」（1997年） | `SRC-TEST-002` 7-3 が引いている論文である。**原典を開いていない。** 同書の記述を根拠にしている |
+| Kent Beck「Test Desiderata」 | テストの望ましい12の性質を挙げた文書である。Medium が HTTP 403 を返し、著者のリポジトリからも取得できなかった。**主張に採っていない** |
+| ISO/IEC/IEEE 29148:2018「Requirements engineering」 | 要求工学のライフサイクル過程を定めた規格である。`iso.org` と `standards.iteh.ai` のいずれも本文を返さなかった。**章「06 問題の見つけ方」は `SRC-EXT-054` の記述で代えている。** 出典IDは振っていない |
+| Curtis・Krasner・Iscoe「A field study of the software design process for large systems」（CACM 31(11)、1988） | 17件の大規模開発を聞き取った実地調査である。`dl.acm.org` の該当PDFが 2026-09-08 の時点で HTTP 403 を返した。**本体を読めていない。** 出典IDは振っていない |
+| Card「The problem with '5 whys'」（BMJ Qual Saf 2017;26(8):671-677、DOI 10.1136/bmjqs-2016-005849） | なぜなぜ分析への批判である。PubMed が要旨を持たず、`pslhub.org` が HTTP 403 を返した。**書誌情報だけを確認し、主張に採っていない。** 出典IDは振っていない |
+| Leveson「A New Accident Model for Engineering Safer Systems」（Safety Science 42(4)、2004、p.237-270） | 直線的な因果モデルへの批判である。`sunnyday.mit.edu` への接続が 2026-09-08 に拒否された（`ECONNREFUSED`）。**同じ向きの主張は `SRC-EXT-061` で代えている。** 出典IDは振っていない |
+| Wason「On the failure to eliminate hypotheses in a conceptual task」（Quarterly Journal of Experimental Psychology 12(3)、1960、p.129-140） | 確証バイアスの原典である。出版社の頁が本文を返さなかった。**章「06 問題の見つけ方」は認知バイアスの名前を使っていない。** 出典IDは振っていない |
+| David Agans『Debugging』、Andreas Zeller『Why Programs Fail』 | 外部AI（Antigravity）が根拠に挙げた書籍である。**手元に無く、抽出テキストも無い。** 章「06 問題の見つけ方」は、この2冊を根拠にした主張を採っていない。出典IDは振っていない |
+| PMBOK Guide、PMI「Practice Standard for Work Breakdown Structures」 | 作業分解構造の公式な定義である。**どちらも有料であり、本文を読めていない。** 章「07 仕事の進め方」は `SRC-EXT-072`（NASA の手引き）で代えている。出典IDは振っていない |
+| ISO/IEC/IEEE 29148:2018「Requirements engineering」（再掲） | `iso.org` と `standards.ieee.org` が 2026-09-09 の時点でどちらも HTTP 403 を返した。**章「07 仕事の進め方」は `SRC-EXT-083`（IPA の合意形成ガイド）で代えている** |
+| Steve McConnell『Software Estimation: Demystifying the Black Art』（2006） | 「見積り・目標・約束」の三分法の出どころとして広く引かれる。**書籍であり手元に無い。** 章「07 仕事の進め方」は `SRC-EXT-067` の3つの語で代えている。出典IDは振っていない |
+| Barry Boehm『Software Engineering Economics』（1981） | 「不確実性の錐」の原典である。**書籍であり手元に無い。** 章「07 仕事の進め方」はこの語を使っていない。出典IDは振っていない |
+| Standish Group「CHAOS Report」 | 案件の成否の統計である。**有料であり本文を読めない。** 章「07 仕事の進め方」は数値を使っていない。出典IDは振っていない |
+| Donald Reinertsen『The Principles of Product Development Flow』、Daniel Vacanti『Actionable Agile Metrics for Predictability』、Eliyahu Goldratt『Critical Chain』、Mike Cohn の相対見積りの著作 | 外部AI（Antigravity）が根拠に挙げた書籍である。**いずれも手元に無く、抽出テキストも無い。** 章「07 仕事の進め方」は、この4冊を根拠にした主張を採っていない。出典IDは振っていない |
+| Larry Constantine「The Emperor Has No Clothes: Naked Objects Meet the Interface」（Interactions 9(2) p.69-71、2002年） | 対象を並べる形への正面からの批判である。ACM の有料範囲にあり、`foruse.com` の原記事は消え、写しは 2026-09-09 に HTTP 403 を返した。**章「08 画面とインターフェースの設計」は `SRC-EXT-086` が引用する範囲だけを使っている。** 出典IDは振っていない |
+| IBM『Object-Oriented Interface Design - IBM Common User Access Guidelines』（1989年／1991年） | 対象を並べる形を体系化した最初期の標準である。**本文を公開している URL を見つけられなかった。** `SRC-EXT-086` が引く範囲だけを使っている。出典IDは振っていない |
+| Apple Human Interface Guidelines「Split views」 | 一覧と詳細を並べる形の公式な指針である。`developer.apple.com` の本文が JavaScript で描画され、2026-09-09 の時点で取得できなかった。**章「08 画面とインターフェースの設計」は `SRC-EXT-097`（Android）で代えている。** 出典IDは振っていない |
+| Larson・Czerwinski（CHI '98）の本文 | `SRC-EXT-102` の要旨は読めたが、本文（実験条件、人数、所要時間）を無料で読める場所を見つけられなかった。**階層の深さの数値の目安を、一次資料から取れていない** |
+| Dave Collins『Designing Object-Oriented User Interfaces』（1995年）、Theo Mandel『The Elements of User Interface Design』（1997年）、Roberts ほか『Designing for the User with OVID』（1998年） | `SRC-UI-001` 6-5 が紹介する3冊である。**いずれも手元に無く、原典を開いていない。** 章「08 画面とインターフェースの設計」は、この3冊を根拠にした主張を採っていない。出典IDは振っていない |
+| Alan Cooper ほか『About Face』 | 外部AI（Antigravity）が `SRC-UI-001` p.336 の記述として引いたが、**同ページに Cooper の説明は無い**（司会が 2026-09-09 に確認）。原典も手元に無い。章「08 画面とインターフェースの設計」は、この書籍を根拠にした主張を採っていない。出典IDは振っていない |
 
 ### まだ調べていない公開情報
 
 | 候補 | 種別 |
 |---|---|
-| ISTQB シラバス、JSTQB | テスト技術の用語と体系 |
+| JSTQB が公開する日本語版シラバスと用語集 | テスト技術の用語と体系。英語版の `SRC-EXT-042` で代えている |
 | SWEBOK Guide | 知識体系 |
 | Martin Fowler の記事のうち、リファクタリングの手順を扱うもの | 個人の公開文書 |
+| 日本の企業が公開するコードレビューの基準 | 公開されている社内標準 |
