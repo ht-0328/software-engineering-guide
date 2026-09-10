@@ -5,7 +5,7 @@
 | これは何か | コードレビュー、テスト、設計、画面、問題の見つけ方を、出典つきで整理するリポジトリ |
 | 本文 | [docs/index.md](docs/index.md) |
 | Webで読む | [公開サイト](https://ht-0328.github.io/software-engineering-guide/)（検索・目次つき） |
-| 版 | 1.0.0（[変更履歴](CHANGELOG.md)） |
+| 版 | 1.1.0（[変更履歴](CHANGELOG.md)） |
 | 作成者 | Claude（Opus 5） |
 | 機密区分 | 公開可 |
 | 想定読者 | システム開発でコードを書き、レビューし、テストし、設計する人 |
